@@ -1,0 +1,367 @@
+<?php
+// =========================================
+// 1. PHP LOGIC (Optional - Dynamic Content)
+// =========================================
+
+// Get current year for footer
+$currentYear = date("Y");
+
+// Project Categories (You can modify these)
+$categories = [
+    'all' => 'All Projects',
+    'branding' => 'Branding',
+    'web-design' => 'Web Design',
+    'ui-ux' => 'UI/UX',
+    'print' => 'Print Design'
+];
+
+// Get selected category
+$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio - Graphic Design Portfolio">
+    <title>Portfolio | DesignStudio</title>
+    
+    <!-- Link to your global/home CSS -->
+    <link rel="stylesheet" href="home.css">
+    
+    <!-- Google Fonts (Optional, if not in home.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Portfolio Specific Styles -->
+    <style>
+        /* Portfolio Page Specific Overrides */
+        .portfolio-hero {
+            padding: 140px 5% 60px 5%;
+            text-align: center;
+        }
+
+        .portfolio-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Buttons */
+        .filter-container {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 5rem 5%;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #333;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-info {
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-info {
+            transform: translateY(0);
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info span {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .project-card:hover .project-link {
+            opacity: 1;
+        }
+
+        .project-link svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .portfolio-hero {
+                padding-top: 100px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         1. NAVIGATION
+         ========================================= -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Design<span>Studio</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="portfolio.html" style="color: var(--accent-color);">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Let's Talk</a>
+    </nav>
+
+    <!-- =========================================
+         2. PORTFOLIO HERO
+         ========================================= -->
+    <section class="portfolio-hero">
+        <h1>Our Work</h1>
+        <p>A collection of projects that showcase our passion for design and innovation.</p>
+    </section>
+
+    
+    <!-- =========================================
+         3. FILTER BUTTONS
+         ========================================= -->
+    <div class="filter-container">
+        <a href="portfolio.php" class="filter-btn <?php echo $selectedCategory === 'all' ? 'active' : ''; ?>">All</a>
+        <a href="portfolio.php?category=branding" class="filter-btn <?php echo $selectedCategory === 'branding' ? 'active' : ''; ?>">Branding</a>
+        <a href="portfolio.php?category=web-design" class="filter-btn <?php echo $selectedCategory === 'web-design' ? 'active' : ''; ?>">Web Design</a>
+        <a href="portfolio.php?category=ui-ux" class="filter-btn <?php echo $selectedCategory === 'ui-ux' ? 'active' : ''; ?>">UI/UX</a>
+        <a href="portfolio.php?category=print" class="filter-btn <?php echo $selectedCategory === 'print' ? 'active' : ''; ?>">Print Design</a>
+    </div>
+
+    <!-- =========================================
+         4. PROJECTS GRID
+         ========================================= -->
+    <section class="portfolio-grid">
+        
+        <!-- Project 1 - Branding -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=TechFlow+Rebrand" alt="TechFlow Rebrand" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>TechFlow Rebrand</h3>
+                    <span>Branding</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+        <!-- Project 2 - Web Design -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=E-Commerce+Platform" alt="E-Commerce Platform" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>E-Commerce Platform</h3>
+                    <span>Web Design</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+        <!-- Project 3 - UI/UX -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Mobile+App+Design" alt="Mobile App Design" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>Mobile App Design</h3>
+                    <span>UI/UX</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+        <!-- Project 4 - Print Design -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Marketing+Kit" alt="Marketing Kit" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>Marketing Kit</h3>
+                    <span>Print Design</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+        <!-- Project 5 - Branding -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Startup+Identity" alt="Startup Identity" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>Startup Identity</h3>
+                    <span>Branding</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+        <!-- Project 6 - Web Design -->
+        <a href="project.html" class="project-card">
+            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Corporate+Website" alt="Corporate Website" class="project-image">
+            <div class="project-overlay">
+                <div class="project-info">
+                    <h3>Corporate Website</h3>
+                    <span>Web Design</span>
+                </div>
+            </div>
+            <div class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+        </a>
+
+    </section>
+
+    <!-- =========================================
+         5. CTA SECTION
+         ========================================= -->
+    <section class="cta-section">
+        <h2>Ready to start your project?</h2>
+        <p>Let's create something amazing together. Contact us today for a free consultation.</p>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </section>
+
+    <!-- =========================================
+         6. FOOTER
+         ========================================= -->
+    <footer>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <a href="#">Dribbble</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; <?php echo $currentYear; ?> DesignStudio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

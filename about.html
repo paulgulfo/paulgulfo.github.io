@@ -1,49 +1,279 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>About — Paul Gulfo</title>
-    <meta name="description" content="About Paul Gulfo — graphic designer." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="Contact.css">
-  </head>
-  <body>
-    <header>
-      <div class="brand">
-        <div class="logo">PG</div>
-        <div>
-          <div style="font-weight:700">Paul Gulfo</div>
-          <div style="font-size:12px;color:var(--muted)">Graphic Designer</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Us - Graphic Design Portfolio">
+    <title>About Us | DesignStudio</title>
+    
+    <!-- Link to your global/home CSS -->
+    <link rel="stylesheet" href="home.css">
+    
+    
+    <!-- Google Fonts (Optional, if not in home.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Specific Styles for About Page -->
+    <style>
+        /* About Page Specific Overrides */
+        .about-hero {
+            padding: 140px 5% 80px 5%;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 5%;
+            background-color: #141414;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #333;
+        }
+
+        .team-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #333;
+            margin: 0 auto 1.5rem auto;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card span {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 5%;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            padding: 2rem;
+            background: linear-gradient(145deg, #1a1a1a, #141414);
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .value-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        .value-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Adjustments for About Page */
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .story-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         1. NAVIGATION
+         ========================================= -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Design<span>Studio</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html" style="color: var(--accent-color);">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Let's Talk</a>
+    </nav>
+
+    <!-- =========================================
+         2. ABOUT HERO
+         ========================================= -->
+    <section class="about-hero">
+        <h1>We Are Designers.</h1>
+        <p>We are a creative agency passionate about building brands that matter. We believe in the power of design to solve problems and tell stories.</p>
+    </section>
+
+    <!-- =========================================
+         3. OUR STORY
+         ========================================= -->
+    <section class="story-section">
+        <img src="https://via.placeholder.com/600x800/1a1a1a/6c5ce7?text=Our+Studio" alt="Our Studio" class="story-image">
+        <div class="story-content">
+            <h2>Our Story</h2>
+            <p>Founded in 2020, DesignStudio began with a simple mission: to make design accessible and impactful for businesses of all sizes. What started as a small freelance operation has grown into a full-service creative agency.</p>
+            <p>We work with startups, established brands, and everything in between. Our approach is collaborative, transparent, and results-driven. We don't just make things look good; we make them work for your business.</p>
+            <a href="portfolio.php" class="btn-primary">See Our Work</a>
         </div>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Our Service</a>
-        <a href="latest.html">Latest Project</a>
-        <a href="contact.html">Contact Me</a>
-      </nav>
-      <div class="social">
-        <a href="https://facebook.com/paulgulfo" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://instagram.com/paulgulfo" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:hello@paulgulfo.com">Email</a>
-      </div>
-    </header>
+    </section>
 
-    <main class="container">
-      <section style="margin-top:36px;">
-        <h2>About</h2>
-        <p style="color:var(--muted);max-width:700px">I'm a graphic designer focused on visual identity, packaging, and editorial illustration. I combine strong typography, considered color, and hand-crafted artwork to develop memorable visual systems for small businesses and creative projects.</p>
-      </section>
-    </main>
+    <!-- =========================================
+         4. TEAM SECTION
+         ========================================= -->
+    <section class="team-section">
+        <h2 class="section-title">Meet The Team</h2>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150/333/fff?text=JD" alt="John Doe" class="team-avatar">
+                <h3>John Doe</h3>
+                <span>Founder & Art Director</span>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150/333/fff?text=JS" alt="Jane Smith" class="team-avatar">
+                <h3>Jane Smith</h3>
+                <span>Lead Designer</span>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150/333/fff?text=MK" alt="Mike K." class="team-avatar">
+                <h3>Mike K.</h3>
+                <span>Developer</span>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-card">
+                <img src="https://via.placeholder.com/150/333/fff?text=AL" alt="Anna L." class="team-avatar">
+                <h3>Anna L.</h3>
+                <span>Marketing</span>
+            </div>
+        </div>
+    </section>
 
+    <!-- =========================================
+         5. VALUES SECTION
+         ========================================= -->
+    <section class="values-section">
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🚀</div>
+                <h3>Innovation</h3>
+                <p>We constantly push boundaries and explore new trends to keep your brand ahead of the curve.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <h3>Collaboration</h3>
+                <p>We believe the best work comes from working together. Your input is crucial to our process.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">✨</div>
+                <h3>Quality</h3>
+                <p>We don't cut corners. Every pixel is placed with intention and purpose.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         6. CTA SECTION
+         ========================================= -->
+    <section class="cta-section">
+        <h2>Ready to work together?</h2>
+        <p>Let's create something amazing together.</p>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </section>
+
+    <!-- =========================================
+         7. FOOTER
+         ========================================= -->
     <footer>
-      <div>&copy; <span id="year"></span> Paul Gulfo — Made with attention to detail.</div>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <a href="#">Dribbble</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
     </footer>
 
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  </body>
+</body>
 </html>

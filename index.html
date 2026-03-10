@@ -1,182 +1,284 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Paul Gulfo — Graphic Designer</title>
-    <meta name="description" content="Portfolio of Paul Gulfo — graphic design, branding, illustration." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="Contact.css">
-  </head>
-  <body>
-    <header>
-      <div class="brand">
-        <div class="logo">PG</div>
-        <div>
-          <div style="font-weight:700">Paul Gulfo</div>
-          <div style="font-size:12px;color:var(--muted)">Graphic Designer</div>
-        </div>
-      </div>
-        <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Our Service</a>
-          <a href="latest.html">Latest Project</a>
-          <a href="contact.html">Contact Me</a>
-        </nav>
-      <div class="social">
-        <a href="https://www.facebook.com/itsmeeeelup.11?mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://instagram.com/paulgulfo" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:hello@paulgulfo.com">Email</a>
-      </div>
-    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Graphic Design Portfolio - Creative Solutions">
+    <title>Graphic Design | Paul</title>
+    
+    <!-- Link to your global/home CSS -->
+    <link rel="stylesheet" href="home.css">
+    
+    <!-- Google Fonts (Optional, if not in home.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <main class="container">
-  <section id="home" class="hero">
-        <div class="hero-card">
-          <div class="eyebrow">Freelance • Branding & Illustration</div>
-          <h1>Crafting bold visual identities and playful illustrations.</h1>
-          <p class="lead">I design brand systems, posters, packaging, and digital art with attention to color, typography, and storytelling. Below are selected projects showcasing concept, execution, and detail.</p>
-          <a class="cta" href="#work">View portfolio</a>
+    <!-- Additional Styles for Homepage Specific Elements (CTA) -->
+    <style>
+        /* Hero Section - Image Layout */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-          <!-- Inspiring hero image -->
-          <img src="assets/img5.svg" alt="Inspiring design" class="hero-image">
+        .hero-content {
+            display: flex;
+            flex-direction: column ;
+            justify-content: center;
+        }
 
-          <div class="showcase" style="margin-top:18px">
-            <div class="panel">
-              <div style="text-align:center">
-                <div style="font-weight:800;font-size:18px">Branding</div>
-                <div style="color:var(--muted);font-size:13px">Logos & identities</div>
-              </div>
+        .hero-image-box {
+            width: 50%;
+            height: 550px;
+            background: #f50606;
+            border-radius: 16px;
+            border: 2px solid var(--accent-color);
+            overflow: hidden;
+            transition: all 0.5s ease;
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        .hero-image-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 70px rgba(240, 4, 4, 0.3);
+            border-color: #e95353;
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-image-box {
+                height: 300px;
+            }
+        }
+
+        /* Designer Profile Section */
+        .designer-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: #141414;
+        }
+
+        .designer-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #333;
+            transition: var(--transition);
+        }
+
+        .designer-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .designer-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+
+        .designer-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .designer-role {
+            color: var(--accent-color);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .designer-bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section for Homepage */
+        .cta-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, #2e2e2e 0%, #0e0d0d 100%);
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         1. NAVIGATION
+         ========================================= -->
+    <nav class="navbar">
+        <a href="home.html" class="logo">Design<span>Studio</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Let's Talk</a>
+    </nav>
+
+    <!-- =========================================
+         2. HERO SECTION
+         ========================================= -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Graphic Design <br> <span style="color: var(--accent-color);"></span></h1> <br> 
+            <h6>I'm John Paul Gulfo</h6>
+            <p>We craft brand identities, digital experiences, and visual systems that help businesses stand out in a crowded markt</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn-primary">View Work</a>
+                <a href="contact.html" class="btn-outline">Get in Touch</a>
             </div>
-            <div class="panel">
-              <div style="text-align:center">
-                <div style="font-weight:800;font-size:18px">Illustration</div>
-                <div style="color:var(--muted);font-size:13px">Editorial & posters</div>
-              </div>
-            </div>
-          </div>
         </div>
+        <div class="hero-image-box">
+            <img src="1.jpg" alt="Design work by Paul Gulfo">
+        </div>
+    </section>
 
-        </aside>
-      </section>
+    <!-- =========================================
+         3. PORTFOLIO PREVIEW
+         ========================================= -->
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="portfolio-grid">
+            <!-- Project Card 1 -->
+            <a href="project.html" class="project-card">
+                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+One" alt="Project 1" class="project-image">
+                <div class="project-info">
+                    <h3>Brand Identity</h3>
+                    <span>Visual Design</span>
+                </div>
+            </a>
+            <!-- Project Card 2 -->
+            <a href="project.html" class="project-card">
+                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+Two" alt="Project 2" class="project-image">
+                <div class="project-info">
+                    <h3>UI/UX Design</h3>
+                    <span>Web Design</span>
+                </div>
+            </a>
+            <!-- Project Card 3 -->
+            <a href="project.html" class="project-card">
+                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+Three" alt="Project 3" class="project-image">
+                <div class="project-info">
+                    <h3>Marketing Kit</h3>
+                    <span>Print Design</span>
+                </div>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="portfolio.php" class="btn-outline">View All Projects</a>
+        </div>
+    </section>
 
-    </main>
+    <!-- =========================================
+         4. SERVICES SECTION
+         ========================================= -->
+    <section class="services">
+        <h2 class="section-title">What We Do</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Branding</h3>
+                <p>Logo design, color palettes, and comprehensive brand guidelines that tell your story.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Web Design</h3>
+                <p>Responsive, user-centric websites that convert visitors into loyal customers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>UI/UX</h3>
+                <p>Intuitive interfaces and seamless user experiences for mobile and web applications.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- =========================================
+         5. DESIGNER PROFILE SECTION
+         ========================================= -->
+    <section class="designer-section">
+        <h2 class="section-title">Meet the Designer</h2>
+        <div class="designer-card">
+            <img src="https://via.placeholder.com/150x150/6c5ce7/ffffff?text=JP+Gulfo" alt="John Paul Gulfo" class="designer-image">
+            <h3 class="designer-name">John Paul Gulfo</h3>
+            <p class="designer-role">Graphic Designer</p>
+            <p class="designer-bio">
+                Creative visual storyteller specializing in branding, illustration, and digital design. 
+                Passionate about clean typography, bold colours, and meaningful user experiences that inspire and engage.
+            </p>
+            <a href="about.html" class="btn-primary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- =========================================
+         6. CTA SECTION
+         ========================================= -->
+    <section class="cta-section">
+        <h2>Ready to start your project?</h2>
+        <p>Let's create something amazing together. Contact us today for a free consultation.</p>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </section>
+
+    <!-- =========================================
+         7. FOOTER
+         ========================================= -->
     <footer>
-      <div>&copy; <span id="year"></span> Paul Gulfo — Made with attention to detail.</div>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <a href="#">Dribbble</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
     </footer>
 
-    <!-- Lightweight lightbox modal -->
-    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal-content" role="document">
-        <div class="modal-header">
-          <div>
-            <div id="m-title" style="font-weight:700"></div>
-            <div id="m-desc" style="font-size:13px;color:var(--muted)"></div>
-          </div>
-          <button id="m-close" aria-label="Close" style="background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer">✕</button>
-        </div>
-          <img id="m-image" class="modal-image" role="img" aria-label="Project preview" alt="Project preview">
-      </div>
-    </div>
-
-    <script>
-      // Small helpers
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      const items = Array.from(document.querySelectorAll('.item'));
-      const modal = document.getElementById('modal');
-  const mImage = document.getElementById('m-image');
-      const mTitle = document.getElementById('m-title');
-      const mDesc = document.getElementById('m-desc');
-      const mClose = document.getElementById('m-close');
-
-      function openModal(item){
-        const title = item.dataset.title || '';
-        const desc = item.dataset.desc || '';
-        const image = item.dataset.image || '';
-        mTitle.textContent = title;
-        mDesc.textContent = desc;
-        // if the modal image is an <img>, set src; otherwise fallback to background
-        if (mImage.tagName === 'IMG'){
-          mImage.src = image;
-          mImage.alt = title + ' — preview';
-        } else {
-          mImage.style.background = image;
-        }
-        modal.setAttribute('open','');
-        modal.setAttribute('aria-hidden','false');
-      }
-
-      function closeModal(){
-        modal.removeAttribute('open');
-        modal.setAttribute('aria-hidden','true');
-      }
-
-      items.forEach(it=>{
-        it.addEventListener('click',()=>openModal(it));
-        it.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(it); } });
-      });
-
-      mClose.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-
-      // Contact form handler - if the form has an action (server endpoint) allow normal POST submission.
-      const form = document.getElementById('contact-form');
-      const formNote = document.getElementById('form-note');
-      if(form){
-        form.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-          const name = document.getElementById('fullname').value.trim();
-          const mobile = document.getElementById('mobile').value.trim();
-          const msg = document.getElementById('message').value.trim();
-          if(!name || !mobile || !msg){
-            formNote.textContent = 'Please complete all fields.';
-            return;
-          }
-
-          const action = (form.getAttribute('action') || '').trim();
-          if (action) {
-            // Submit via fetch to get JSON response and avoid redirect
-            formNote.textContent = 'Sending...';
-            const data = new FormData(form);
-            // Add honeypot if missing
-            if(!data.has('hp')) data.append('hp','');
-            try{
-              const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-              const json = await res.json();
-              if(res.ok && json && json.success){
-                formNote.classList.remove('form-error');
-                formNote.classList.add('form-success');
-                formNote.textContent = json.message || 'Message sent.';
-                form.reset();
-              } else {
-                formNote.classList.remove('form-success');
-                formNote.classList.add('form-error');
-                formNote.textContent = (json && json.message) ? json.message : 'Failed to send message.';
-              }
-            } catch(err){
-              formNote.classList.remove('form-success');
-              formNote.classList.add('form-error');
-              formNote.textContent = 'Network error. Try again.';
-            }
-            setTimeout(()=>{ formNote.textContent = ''; formNote.classList.remove('form-success','form-error'); }, 4500);
-            return;
-          }
-
-          // Fallback: open mail client if no server endpoint configured
-          const to = 'hello@paulgulfo.com';
-          const subject = encodeURIComponent('Website contact from ' + name);
-          const body = encodeURIComponent('Name: ' + name + '\nMobile: ' + mobile + '\n\nMessage:\n' + msg);
-          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-          formNote.textContent = 'Opening your mail client...';
-          setTimeout(()=>{ formNote.textContent = ''; form.reset(); }, 3000);
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>

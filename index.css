@@ -36,6 +36,7 @@ p.lead{color:var(--muted);margin:0 0 18px}
   .social{order:2;width:100%;justify-content:center;margin-top:8px}
 }
 
+
 /* Hero image */
 .hero-image{width:100%;max-width:480px;border-radius:10px;margin-top:16px;display:block}
 

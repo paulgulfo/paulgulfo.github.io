@@ -1,124 +1,274 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Contact — Paul Gulfo</title>
-    <meta name="description" content="Contact Paul Gulfo." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="Contact.css">
-  </head>
-  <body>
-    <header>
-      <div class="brand">
-        <div class="logo">PG</div>
-        <div>
-          <div style="font-weight:700">Paul Gulfo</div>
-          <div style="font-size:12px;color:var(--muted)">Graphic Designer</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Us - Graphic Design Portfolio">
+    <title>Contact Us | DesignStudio</title>
+    
+    <!-- Link to your global/home CSS -->
+    <link rel="stylesheet" href="home.css">
+    
+    <!-- Google Fonts (Optional, if not in home.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Specific Styles for Contact Page -->
+    <style>
+        /* Contact Page Specific Overrides */
+        .contact-hero {
+            padding: 140px 5% 60px 5%;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #333;
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .info-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #333;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-hero {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         1. NAVIGATION
+         ========================================= -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Design<span>Studio</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+             <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Let's Talk</a>
+    </nav>
+
+    <!-- =========================================
+         2. CONTACT HERO
+         ========================================= -->
+    <section class="contact-hero">
+        <h1>Let's Create Together</h1>
+        <p>Have a project in mind? Fill out the form below or reach out directly. We'd love to hear from you</p>
+    </section>
+
+    <!-- =========================================
+         3. CONTACT INFO & FORM
+         ========================================= -->
+    <div class="contact-container">
+        
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-text">
+                    <h4>Address</h4>
+                    <p>123 Creative Avenue<br>Design District, NY 10001</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-text">
+                    <h4>Email</h4>
+                    <p>hello@designstudio.com<br>support@designstudio.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-text">
+                    <h4>Phone</h4>
+                    <p>+1 (555) 123-4567<br>Mon-Fri, 9am-6pm</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🌐</div>
+                <div class="info-text">
+                    <h4>Socials</h4>
+                    <p>
+                        <a href="#" style="color: var(--accent-color);">Instagram</a> • 
+                        <a href="#" style="color: var(--accent-color);">Behance</a> • 
+                        <a href="#" style="color: var(--accent-color);">LinkedIn</a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Our Service</a>
-        <a href="latest.html">Latest Project</a>
-        <a href="contact.html">Contact Me</a>
-      </nav>
-      <div class="social">
-        <a href="https://facebook.com/paulgulfo" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://instagram.com/paulgulfo" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:hello@paulgulfo.com">Email</a>
-      </div>
-    </header>
 
-    <main class="container">
-      <section style="margin-top:32px">
-        <h2>Contact Me</h2>
-        <p style="color:var(--muted);max-width:720px">Fill out the form and I'll get back to you.</p>
-        <form id="contact-form" class="contact-form" action="assets/index.php" method="post" style="margin-top:16px;max-width:720px;display:grid;gap:10px">
-          <label>
-            Full name
-            <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
-          </label>
-          <label>
-            Mobile number
-            <input type="tel" id="mobile" name="mobile" placeholder="+63 9xx xxx xxxx" required>
-          </label>
-          <!-- Honeypot field (hidden) to trap bots -->
-          <label style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
-            Leave this field empty
-            <input type="text" name="hp" tabindex="-1" autocomplete="off">
-          </label>
-          <label>
-            Your message
-            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project" required></textarea>
-          </label>
-          <div class="contact-actions">
-            <button type="submit" class="btn">Send message</button>
-            <div id="form-note"></div>
-          </div>
-        </form>
-      </section>
-    </main>
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form action="contact.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
+    <!-- =========================================
+         4. FOOTER
+         ========================================= -->
     <footer>
-      <div>&copy; <span id="year"></span> Paul Gulfo — Made with attention to detail.</div>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <a href="#">Dribbble</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
     </footer>
 
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Contact form handler copied from original index.html
-      const form = document.getElementById('contact-form');
-      const formNote = document.getElementById('form-note');
-      if(form){
-        form.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-          const name = document.getElementById('fullname').value.trim();
-          const mobile = document.getElementById('mobile').value.trim();
-          const msg = document.getElementById('message').value.trim();
-          if(!name || !mobile || !msg){
-            formNote.textContent = 'Please complete all fields.';
-            return;
-          }
-
-          const action = (form.getAttribute('action') || '').trim();
-          if (action) {
-            formNote.textContent = 'Sending...';
-            const data = new FormData(form);
-            if(!data.has('hp')) data.append('hp','');
-            try{
-              const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-              const json = await res.json();
-              if(res.ok && json && json.success){
-                formNote.classList.remove('form-error');
-                formNote.classList.add('form-success');
-                formNote.textContent = json.message || 'Message sent.';
-                form.reset();
-              } else {
-                formNote.classList.remove('form-success');
-                formNote.classList.add('form-error');
-                formNote.textContent = (json && json.message) ? json.message : 'Failed to send message.';
-              }
-            } catch(err){
-              formNote.classList.remove('form-success');
-              formNote.classList.add('form-error');
-              formNote.textContent = 'Network error. Try again.';
-            }
-            setTimeout(()=>{ formNote.textContent = ''; formNote.classList.remove('form-success','form-error'); }, 4500);
-            return;
-          }
-
-          const to = 'hello@paulgulfo.com';
-          const subject = encodeURIComponent('Website contact from ' + name);
-          const body = encodeURIComponent('Name: ' + name + '\nMobile: ' + mobile + '\n\nMessage:\n' + msg);
-          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-          formNote.textContent = 'Opening your mail client...';
-          setTimeout(()=>{ formNote.textContent = ''; form.reset(); }, 3000);
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>
