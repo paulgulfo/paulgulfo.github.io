@@ -1,8 +1,5 @@
 <!doctype html>
-<html la# opens index.html in your default browser
-ii .\index.html# opens index.html in your default browser
-ii .\index.html# opens index.html in your default browser
-ii .\index.htmlng="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -10,60 +7,8 @@ ii .\index.htmlng="en">
     <meta name="description" content="Portfolio of Paul Gulfo — graphic design, branding, illustration." />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-      :root{--bg:#0f1724;--card:#0b1220;--accent:#ff7a59;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071028 0%, #081129 40%);color:#e6eef8;line-height:1.4}
-      a{color:inherit}
-      header{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;backdrop-filter:blur(6px)}
-      .brand{display:flex;gap:12px;align-items:center}
-      .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ffd166);display:grid;place-items:center;color:#081129;font-weight:800}
-      nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
-      nav a:hover{color:var(--accent)}
-
-      .container{max-width:1100px;margin:32px auto;padding:0 20px}
-
-      .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:8px}
-      .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.6);}
-      .eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:0.06em}
-      h1{margin:10px 0 8px;font-size:clamp(28px,4.5vw,40px);line-height:1.05}
-      p.lead{color:var(--muted);margin:0 0 18px}
-      .cta{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff9966);color:#081129;font-weight:700;text-decoration:none}
-
-      .showcase{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
-      .showcase .panel{background:var(--card);border-radius:12px;padding:12px;height:100%;display:flex;align-items:center;justify-content:center}
-
-      /* Portfolio grid */
-      .portfolio{margin-top:34px}
-      .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-      .item{background:var(--glass);border-radius:12px;padding:16px;cursor:pointer;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}
-      .item:focus, .item:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-      .thumb{height:180px;border-radius:8px;background-size:cover;background-position:center;margin-bottom:12px;display:block}
-      .meta{display:flex;justify-content:space-between;align-items:center}
-      .title{font-weight:700}
-      .sub{color:var(--muted);font-size:13px}
-
-      /* Modal / lightbox */
-      .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.9));z-index:60}
-      .modal[open]{display:flex}
-      .modal-content{max-width:1100px;width:94%;background:#061126;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.8)}
-      .modal-header{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
-      .modal-image{margin-top:12px;border-radius:8px;background:#0b1220;height:520px;background-size:cover;background-position:center}
-
-      footer{padding:36px 20px;text-align:center;color:var(--muted)}
-
-      /* Responsive */
-      @media (max-width:980px){
-        .hero{grid-template-columns:1fr}
-        .grid{grid-template-columns:repeat(2,1fr)}
-      }
-      @media (max-width:560px){
-        .grid{grid-template-columns:1fr}
-        .hero{gap:12px}
-        .modal-image{height:320px}
-      }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Contact.css">
   </head>
   <body>
     <header>
@@ -74,20 +19,30 @@ ii .\index.htmlng="en">
           <div style="font-size:12px;color:var(--muted)">Graphic Designer</div>
         </div>
       </div>
-      <nav>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Our Service</a>
+          <a href="latest.html">Latest Project</a>
+          <a href="contact.html">Contact Me</a>
+        </nav>
+      <div class="social">
+        <a href="https://www.facebook.com/itsmeeeelup.11?mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/paulgulfo" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:hello@paulgulfo.com">Email</a>
+      </div>
     </header>
 
     <main class="container">
-      <section class="hero">
+  <section id="home" class="hero">
         <div class="hero-card">
           <div class="eyebrow">Freelance • Branding & Illustration</div>
           <h1>Crafting bold visual identities and playful illustrations.</h1>
           <p class="lead">I design brand systems, posters, packaging, and digital art with attention to color, typography, and storytelling. Below are selected projects showcasing concept, execution, and detail.</p>
           <a class="cta" href="#work">View portfolio</a>
+
+          <!-- Inspiring hero image -->
+          <img src="assets/img5.svg" alt="Inspiring design" class="hero-image">
 
           <div class="showcase" style="margin-top:18px">
             <div class="panel">
@@ -105,62 +60,7 @@ ii .\index.htmlng="en">
           </div>
         </div>
 
-        <aside>
-          <div class="hero-card" style="width:420px">
-            <div style="font-size:13px;color:var(--muted);margin-bottom:12px">Selected clients</div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Studio Arc</span><strong style="color:var(--accent)">Identity</strong></div>
-              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Paper & Co</span><strong style="color:var(--accent)">Packaging</strong></div>
-              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Local Fest</span><strong style="color:var(--accent)">Poster</strong></div>
-            </div>
-          </div>
         </aside>
-      </section>
-
-      <section id="work" class="portfolio">
-        <h2 style="margin:8px 0 12px">Selected Work</h2>
-        <div class="grid" id="grid">
-          <!-- Six placeholder items. Backgrounds are CSS gradients to mimic artwork. -->
-          <div class="item" tabindex="0" data-title="Arc Identity" data-desc="Full brand system for Studio Arc" data-image="linear-gradient(135deg,#ffd166,#ff7a59)"> 
-            <div class="thumb" style="background:linear-gradient(135deg,#ffd166,#ff7a59)"></div>
-            <div class="meta"><div class="title">Arc Identity</div><div class="sub">Branding</div></div>
-          </div>
-
-          <div class="item" tabindex="0" data-title="Paper Box" data-desc="Packaging design for Paper & Co" data-image="linear-gradient(135deg,#8ec5ff,#e0c3fc)">
-            <div class="thumb" style="background:linear-gradient(135deg,#8ec5ff,#e0c3fc)"></div>
-            <div class="meta"><div class="title">Paper Box</div><div class="sub">Packaging</div></div>
-          </div>
-
-          <div class="item" tabindex="0" data-title="Local Fest Poster" data-desc="Illustrated poster for Local Fest" data-image="linear-gradient(135deg,#ffdede,#ffb4a2)">
-            <div class="thumb" style="background:linear-gradient(135deg,#ffdede,#ffb4a2)"></div>
-            <div class="meta"><div class="title">Local Fest</div><div class="sub">Poster</div></div>
-          </div>
-
-          <div class="item" tabindex="0" data-title="Cafe Menu" data-desc="Editorial layout and menu design" data-image="linear-gradient(135deg,#d4fc79,#96e6a1)">
-            <div class="thumb" style="background:linear-gradient(135deg,#d4fc79,#96e6a1)"></div>
-            <div class="meta"><div class="title">Cafe Menu</div><div class="sub">Editorial</div></div>
-          </div>
-
-          <div class="item" tabindex="0" data-title="Neon Concept" data-desc="Concept art & neon style graphics" data-image="linear-gradient(135deg,#89f7fe,#66a6ff)">
-            <div class="thumb" style="background:linear-gradient(135deg,#89f7fe,#66a6ff)"></div>
-            <div class="meta"><div class="title">Neon Concept</div><div class="sub">Concept</div></div>
-          </div>
-
-          <div class="item" tabindex="0" data-title="Editorial Spread" data-desc="Magazine layout and illustration" data-image="linear-gradient(135deg,#fbc2eb,#a6c1ee)">
-            <div class="thumb" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee)"></div>
-            <div class="meta"><div class="title">Editorial Spread</div><div class="sub">Illustration</div></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" style="margin-top:36px">
-        <h2>About</h2>
-        <p style="color:var(--muted);max-width:700px">I'm a graphic designer focused on visual identity, packaging, and editorial illustration. I combine strong typography, considered color, and hand-crafted artwork to develop memorable visual systems for small businesses and creative projects.</p>
-      </section>
-
-      <section id="contact" style="margin-top:32px">
-        <h2>Contact</h2>
-        <p style="color:var(--muted);max-width:720px">Interested in working together? Email <a href="mailto:hello@paulgulfo.com" style="color:var(--accent);text-decoration:none">hello@paulgulfo.com</a> or say hi on <a href="#" style="color:var(--accent)">Instagram</a>.</p>
       </section>
 
     </main>
@@ -179,7 +79,7 @@ ii .\index.htmlng="en">
           </div>
           <button id="m-close" aria-label="Close" style="background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer">✕</button>
         </div>
-        <div id="m-image" class="modal-image" role="img" aria-label="Project preview"></div>
+          <img id="m-image" class="modal-image" role="img" aria-label="Project preview" alt="Project preview">
       </div>
     </div>
 
@@ -189,7 +89,7 @@ ii .\index.htmlng="en">
 
       const items = Array.from(document.querySelectorAll('.item'));
       const modal = document.getElementById('modal');
-      const mImage = document.getElementById('m-image');
+  const mImage = document.getElementById('m-image');
       const mTitle = document.getElementById('m-title');
       const mDesc = document.getElementById('m-desc');
       const mClose = document.getElementById('m-close');
@@ -200,7 +100,13 @@ ii .\index.htmlng="en">
         const image = item.dataset.image || '';
         mTitle.textContent = title;
         mDesc.textContent = desc;
-        mImage.style.background = image;
+        // if the modal image is an <img>, set src; otherwise fallback to background
+        if (mImage.tagName === 'IMG'){
+          mImage.src = image;
+          mImage.alt = title + ' — preview';
+        } else {
+          mImage.style.background = image;
+        }
         modal.setAttribute('open','');
         modal.setAttribute('aria-hidden','false');
       }
@@ -218,6 +124,59 @@ ii .\index.htmlng="en">
       mClose.addEventListener('click', closeModal);
       modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+      // Contact form handler - if the form has an action (server endpoint) allow normal POST submission.
+      const form = document.getElementById('contact-form');
+      const formNote = document.getElementById('form-note');
+      if(form){
+        form.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const name = document.getElementById('fullname').value.trim();
+          const mobile = document.getElementById('mobile').value.trim();
+          const msg = document.getElementById('message').value.trim();
+          if(!name || !mobile || !msg){
+            formNote.textContent = 'Please complete all fields.';
+            return;
+          }
+
+          const action = (form.getAttribute('action') || '').trim();
+          if (action) {
+            // Submit via fetch to get JSON response and avoid redirect
+            formNote.textContent = 'Sending...';
+            const data = new FormData(form);
+            // Add honeypot if missing
+            if(!data.has('hp')) data.append('hp','');
+            try{
+              const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+              const json = await res.json();
+              if(res.ok && json && json.success){
+                formNote.classList.remove('form-error');
+                formNote.classList.add('form-success');
+                formNote.textContent = json.message || 'Message sent.';
+                form.reset();
+              } else {
+                formNote.classList.remove('form-success');
+                formNote.classList.add('form-error');
+                formNote.textContent = (json && json.message) ? json.message : 'Failed to send message.';
+              }
+            } catch(err){
+              formNote.classList.remove('form-success');
+              formNote.classList.add('form-error');
+              formNote.textContent = 'Network error. Try again.';
+            }
+            setTimeout(()=>{ formNote.textContent = ''; formNote.classList.remove('form-success','form-error'); }, 4500);
+            return;
+          }
+
+          // Fallback: open mail client if no server endpoint configured
+          const to = 'hello@paulgulfo.com';
+          const subject = encodeURIComponent('Website contact from ' + name);
+          const body = encodeURIComponent('Name: ' + name + '\nMobile: ' + mobile + '\n\nMessage:\n' + msg);
+          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+          formNote.textContent = 'Opening your mail client...';
+          setTimeout(()=>{ formNote.textContent = ''; form.reset(); }, 3000);
+        });
+      }
     </script>
   </body>
 </html>

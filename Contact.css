@@ -1,0 +1,30 @@
+/* Contact form specific styles for Paul Gulfo portfolio */
+:root{--accent:#ff7a59;--muted:#94a3b8;--card:#0b1220;--glass:rgba(255,255,255,0.03);--bg:#071028}
+.contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.contact-form label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8;font-size:14px;outline:none}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 6px 18px rgba(255,122,89,0.08)}
+.contact-form textarea{min-height:140px;resize:vertical}
+
+.contact-actions{display:flex;gap:12px;align-items:center}
+.contact-actions .btn{padding:11px 18px;border-radius:10px;font-weight:700}
+.contact-actions .btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
+
+#form-note{min-height:20px;color:var(--muted);font-size:13px}
+.form-success{color:#8ee5a1}
+.form-error{color:#ff9999}
+
+/* Mobile tweaks */
+@media (max-width:720px){
+  .contact-form{padding:16px}
+  .contact-actions{flex-direction:column;align-items:stretch}
+  .contact-actions .btn{width:100%}
+}
+
+/* Small accessibility helpers */
+.contact-form input[required], .contact-form textarea[required]{box-shadow:none}
+.contact-form label span.required{color:var(--accent);margin-left:6px}

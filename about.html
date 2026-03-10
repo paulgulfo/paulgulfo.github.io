@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About — Paul Gulfo</title>
+    <meta name="description" content="About Paul Gulfo — graphic designer." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Contact.css">
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="logo">PG</div>
+        <div>
+          <div style="font-weight:700">Paul Gulfo</div>
+          <div style="font-size:12px;color:var(--muted)">Graphic Designer</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Our Service</a>
+        <a href="latest.html">Latest Project</a>
+        <a href="contact.html">Contact Me</a>
+      </nav>
+      <div class="social">
+        <a href="https://facebook.com/paulgulfo" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/paulgulfo" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:hello@paulgulfo.com">Email</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section style="margin-top:36px;">
+        <h2>About</h2>
+        <p style="color:var(--muted);max-width:700px">I'm a graphic designer focused on visual identity, packaging, and editorial illustration. I combine strong typography, considered color, and hand-crafted artwork to develop memorable visual systems for small businesses and creative projects.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Paul Gulfo — Made with attention to detail.</div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
