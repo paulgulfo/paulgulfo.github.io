@@ -147,6 +147,23 @@
             transform: translateY(-2px);
         }
 
+        /* Thank You Message Styles */
+        #success-message {
+            animation: slideInUp 0.5s ease-out;
+            font-size: 1.1rem;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .contact-container {
@@ -253,8 +270,8 @@
                     <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
-                <div id="success-message" style="display: none; margin-top: 1rem; padding: 1rem; background-color: #1a1a1a; border: 1px solid #2ecc71; border-radius: 8px; color: #2ecc71; text-align: center;">
-                    Thank you for your message! Your email is being sent to gulfopaul3@gmail.com. We'll get back to you soon! 🎉
+                <div id="success-message" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #1a1a1a 0%, #1a2a2a 100%); border: 2px solid #2ecc71; border-radius: 12px; color: #2ecc71; text-align: center; font-weight: 600; font-size: 1.1rem;">
+                    ✅ Thank you for your message! Your email has been sent to gulfopaul3@gmail.com. We'll get back to you soon! 🎉
                 </div>
                 <script>
             document.querySelector('.contact-form form').addEventListener('submit', function(e) {
@@ -276,11 +293,10 @@
                 const successMsg = document.getElementById('success-message');
                 successMsg.style.display = 'block';
                 
-                // Reset form
+                // Redirect to thank you page after 3 seconds
                 setTimeout(() => {
-                    this.reset();
-                    successMsg.style.display = 'none';
-                }, 2000);
+                    window.location.href = 'Thankyou.html';
+                }, 3000);
             });
                 </script>
             </form>
