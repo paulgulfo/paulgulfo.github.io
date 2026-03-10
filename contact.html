@@ -207,7 +207,7 @@
                 <div class="info-icon">📧</div>
                 <div class="info-text">
                     <h4>Email</h4>
-                    <p>hello@designstudio.com<br>support@designstudio.com</p>
+                    <p>gulfopaul3@gmail.com<br>paulgulfo.giyhub.io</p>
                 </div>
             </div>
 
@@ -215,7 +215,7 @@
                 <div class="info-icon">📞</div>
                 <div class="info-text">
                     <h4>Phone</h4>
-                    <p>+1 (555) 123-4567<br>Mon-Fri, 9am-6pm</p>
+                    <p>63+ 09517011720<br>Mon-Fri, 9am-6pm</p>
                 </div>
             </div>
 
@@ -231,11 +231,11 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Contact Form -->
         <div class="contact-form">
             <h3>Send a Message</h3>
-            <form action="contact.php" method="POST">
+            <form action="contact.html" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -253,6 +253,12 @@
                     <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
+                <script>
+            document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                window.location.href = 'thankyou.html';
+            });
+                </script>
             </form>
         </div>
     </div>
