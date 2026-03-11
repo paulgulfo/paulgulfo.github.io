@@ -42,12 +42,13 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
         }
 
         .portfolio-hero h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
+           -webkit-background-clip: text;
+             font-size: clamp(3rem, 6vw, 5rem);
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #a0a0a0);
-            -webkit-background-clip: text;
+            background: linear-gradient(to right, #fff, #5a4a4a);
             -webkit-text-fill-color: transparent;
         }
+    
 
         .portfolio-hero p {
             font-size: 1.2rem;
@@ -210,6 +211,44 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
                 align-items: center;
             }
         }
+
+        /* Background Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #f10303; /* White background */
+            border: none;
+            border-radius: 50%;
+            color: #f8f3f3; /* Black icon for contrast */
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Dark shadow */
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(235, 24, 24, 0.5);
+        }
+       .audio-control:active {
+            transform: scale(0.95);
+        }
+        @media (max-width: 768px) {
+            .audio-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -222,8 +261,8 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="project.html">Projects</a></li>
-            <li><a href="portfolio.html" style="color: var(--accent-color);">Portfolio</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -257,7 +296,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
         
         <!-- Project 1 - Branding -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=TechFlow+Rebrand" alt="TechFlow Rebrand" class="project-image">
+            <img src="3.jpg" alt="TechFlow Rebrand" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>TechFlow Rebrand</h3>
@@ -271,7 +310,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
 
         <!-- Project 2 - Web Design -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=E-Commerce+Platform" alt="E-Commerce Platform" class="project-image">
+            <img src="3.jpg" alt="E-Commerce Platform" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>E-Commerce Platform</h3>
@@ -285,7 +324,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
 
         <!-- Project 3 - UI/UX -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Mobile+App+Design" alt="Mobile App Design" class="project-image">
+            <img src="3.jpg" alt="Mobile App Design" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>Mobile App Design</h3>
@@ -299,7 +338,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
 
         <!-- Project 4 - Print Design -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Marketing+Kit" alt="Marketing Kit" class="project-image">
+            <img src="3.jpg" alt="Marketing Kit" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>Marketing Kit</h3>
@@ -313,7 +352,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
 
         <!-- Project 5 - Branding -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Startup+Identity" alt="Startup Identity" class="project-image">
+            <img src="3.jpg" alt="Startup Identity" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>Startup Identity</h3>
@@ -327,7 +366,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
 
         <!-- Project 6 - Web Design -->
         <a href="project.html" class="project-card">
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Corporate+Website" alt="Corporate Website" class="project-image">
+            <img src="3.jpg" alt="Corporate Website" class="project-image">
             <div class="project-overlay">
                 <div class="project-info">
                     <h3>Corporate Website</h3>
@@ -360,8 +399,67 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
             <a href="#">Dribbble</a>
             <a href="#">LinkedIn</a>
         </div>
-        <p class="copyright">&copy; <?php echo $currentYear; ?> DesignStudio. All rights reserved.</p>
+        <p class="copyright">&copy; <?php echo $currentYear; ?> 2026 Paul gulfo. All rights reserved.</p>
     </footer>
+
+    <!-- Background Audio Element -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="%233%20%20LoLo%20rems.MP3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => console.log('Play failed:', err));
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
 
 </body>
 </html>

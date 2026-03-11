@@ -12,7 +12,7 @@
     <!-- Link to your specific project CSS -->
     <link rel="stylesheet" href="project.css">
     
-    <!-- Google Fonts (Optional, if not in home.css) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,13 +25,12 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="project.html">Projects</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="project.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <a href="contact.html" class="btn-primary">Let's Talk</a>
-
     </nav>
 
     <!-- =========================================
@@ -78,7 +77,7 @@
                 <p>TechFlow needed to modernize their image to appeal to enterprise clients. Their existing brand felt outdated and didn't reflect the innovative nature of their SaaS platform. They needed a complete visual overhaul that would communicate trust, innovation, and professionalism.</p>
                 <p>Our goal was to create a brand identity that would stand out in a crowded market while maintaining the core values of reliability and cutting-edge technology.</p>
             </div>
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Challenge+Visual" alt="Challenge" class="content-image">
+            <img src="3.jpg" alt="Challenge" class="content-image">
         </div>
     </section>
 
@@ -92,7 +91,7 @@
                 <p>We developed a bold color palette featuring deep blues and vibrant accents to represent trust and innovation. The new logo system is modular and scalable across all touchpoints.</p>
                 <p>Our design system includes comprehensive guidelines for typography, color usage, and iconography, ensuring consistency across all digital and print materials.</p>
             </div>
-            <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Solution+Visual" alt="Solution" class="content-image">
+            <img src="3.jpg" alt="Solution" class="content-image">
         </div>
     </section>
 
@@ -102,12 +101,12 @@
     <section class="gallery-section">
         <h2 class="section-title">Project Gallery</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+1" alt="Gallery 1"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+2" alt="Gallery 2"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+3" alt="Gallery 3"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+4" alt="Gallery 4"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+5" alt="Gallery 5"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Gallery+6" alt="Gallery 6"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 1"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 2"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 3"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 5"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Gallery 6"></div>
         </div>
     </section>
 
@@ -125,13 +124,88 @@
          ========================================= -->
     <footer>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Behance</a>
-            <a href="#">Dribbble</a>
-            <a href="#">LinkedIn</a>
+           <a href="https://www.instagram.com/itsmeelup22?igsh=MTltZThxdmE2NWg1Yw==">Instagram</a>
+            <a href="https://www.facebook.com/itsmeeeelup.11">Facebook</a>
+            <a href="mailto:gulfopaul3@gmail.com">Gmail</a>
+            <a href="https://www.tiktok.com/@paaultzyyy?_r=1&_t=ZS-94astcz7Gc6
+">Tiktok</a>
         </div>
-        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Paul gulfo. All rights reserved.</p>
     </footer>
+
+    <!-- =========================================
+         9. BACKGROUND AUDIO & CONTROL
+         ========================================= -->
+    <audio id="backgroundAudio" loop>
+        <source src="%234%20%20LoLo%20rems.MP3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load (with user interaction requirement)
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => {
+                    console.log('Autoplay prevented:', err);
+                    isPlaying = false;
+                    updateButtonState();
+                });
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => {
+                    console.log('Play failed:', err);
+                    isPlaying = false;
+                    updateButtonState();
+                });
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('ended', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
 
 </body>
 </html>

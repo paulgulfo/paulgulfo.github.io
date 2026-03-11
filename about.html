@@ -24,7 +24,7 @@
         .about-hero h1 {
             font-size: clamp(3rem, 6vw, 5rem);
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #a0a0a0);
+            background: linear-gradient(to right, #fff, #f10606);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -155,6 +155,48 @@
                 height: 300px;
             }
         }
+
+        /* Background Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #f10303; /* White background */
+            border: none;
+            border-radius: 50%;
+            color: #f8f3f3; /* Black icon for contrast */
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Dark shadow */
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(235, 24, 24, 0.5);
+        }
+       .audio-control:active {
+            transform: scale(0.95);
+        }
+        .audio-control:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .audio-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -167,8 +209,8 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="project.html">Projects</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="project.html">Projects</a></li>
             <li><a href="about.html" style="color: var(--accent-color);">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -204,26 +246,26 @@
         <div class="team-grid">
             <!-- Team Member 1 -->
             <div class="team-card">
-                <img src="https://via.placeholder.com/150/333/fff?text=JD" alt="John Doe" class="team-avatar">
-                <h3>John Doe</h3>
+                <img src="3.jpg" alt="John Doe" class="team-avatar">
+                <h3>PAUL</h3>
                 <span>Founder & Art Director</span>
             </div>
             <!-- Team Member 2 -->
             <div class="team-card">
-                <img src="https://via.placeholder.com/150/333/fff?text=JS" alt="Jane Smith" class="team-avatar">
-                <h3>Jane Smith</h3>
+                <img src="3.jpg" alt="Jane Smith" class="team-avatar">
+                <h3>PAUL</h3>
                 <span>Lead Designer</span>
             </div>
             <!-- Team Member 3 -->
             <div class="team-card">
-                <img src="https://via.placeholder.com/150/333/fff?text=MK" alt="Mike K." class="team-avatar">
-                <h3>Mike K.</h3>
+                <img src="3.jpg" alt="Mike K." class="team-avatar">
+                <h3>PAUL</h3>
                 <span>Developer</span>
             </div>
             <!-- Team Member 4 -->
             <div class="team-card">
-                <img src="https://via.placeholder.com/150/333/fff?text=AL" alt="Anna L." class="team-avatar">
-                <h3>Anna L.</h3>
+                <img src="3.jpg" alt="Anna L." class="team-avatar">
+                <h3>PAUL</h3>
                 <span>Marketing</span>
             </div>
         </div>
@@ -267,13 +309,73 @@
          ========================================= -->
     <footer>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Behance</a>
-            <a href="#">Dribbble</a>
-            <a href="#">LinkedIn</a>
+            <a href="https://www.instagram.com/itsmeelup22?igsh=MTltZThxdmE2NWg1Yw==">Instagram</a>
+            <a href="https://www.facebook.com/itsmeeeelup.11">Facebook</a>
+            <a href="mailto:gulfopaul3@gmail.com">Gmail</a>
+            <a href="https://www.tiktok.com/@paaultzyyy?_r=1&_t=ZS-94astcz7Gc6
+">Tiktok</a>
         </div>
-        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Paul gulfo. All rights reserved.</p>
     </footer>
+
+    <!-- Background Audio Element -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="%235%20%20LoLo%20rems.MP3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => console.log('Play failed:', err));
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
 
 </body>
 </html>

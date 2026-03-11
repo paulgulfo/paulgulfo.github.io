@@ -14,6 +14,10 @@
 
     <!-- Additional Styles for Homepage Specific Elements (CTA) -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Hero Section - Image Layout */
         .hero {
             display: grid;
@@ -143,6 +147,86 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Floating Play Button */
+        .floating-play-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(252, 2, 2, 0.938);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .floating-play-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(255, 4, 4, 0.973);
+        }
+
+        .floating-play-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .floating-play-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+        }
+
+        /* Background Audio Control */
+       .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #f10303; /* White background */
+            border: none;
+            border-radius: 50%;
+            color: #f8f3f3; /* Black icon for contrast */
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Dark shadow */
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(235, 24, 24, 0.5);
+        }
+       .audio-control:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .audio-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -155,8 +239,8 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="project.html">Projects</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="project.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -170,7 +254,9 @@
         <div class="hero-content">
             <h1>Graphic Design <br> <span style="color: var(--accent-color);"></span></h1> <br> 
             <h6>I'm John Paul Gulfo</h6>
-            <p>We craft brand identities, digital experiences, and visual systems that help businesses stand out in a crowded markt</p>
+            <p>I’m John Paul Gulfo, a Graphic Designer with a sharp eye for visual storytelling. I specialize in designing high-quality marketing 
+                materials and social media layouts using Canva. I pride myself on balancing creative flair with the strong organizational skills needed 
+                to keep projects running smoothly. I’d love the opportunity to help your team grow through impactful design. Thanks so much!</p>
             <div class="hero-btns">
                 <a href="#portfolio" class="btn-primary">View Work</a>
                 <a href="contact.html" class="btn-outline">Get in Touch </a>
@@ -189,7 +275,7 @@
         <div class="portfolio-grid">
             <!-- Project Card 1 -->
             <a href="project.html" class="project-card">
-                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+One" alt="Project 1" class="project-image">
+                <img src="3.jpg" alt="Project 1" class="project-image">
                 <div class="project-info">
                     <h3>Brand Identity</h3>
                     <span>Visual Design</span>
@@ -197,7 +283,7 @@
             </a>
             <!-- Project Card 2 -->
             <a href="project.html" class="project-card">
-                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+Two" alt="Project 2" class="project-image">
+                <img src="3.jpg" alt="Project 2" class="project-image">
                 <div class="project-info">
                     <h3>UI/UX Design</h3>
                     <span>Web Design</span>
@@ -205,7 +291,7 @@
             </a>
             <!-- Project Card 3 -->
             <a href="project.html" class="project-card">
-                <img src="https://via.placeholder.com/600x400/1a1a1a/6c5ce7?text=Project+Three" alt="Project 3" class="project-image">
+                <img src="3.jpg" alt="Project 3" class="project-image">
                 <div class="project-info">
                     <h3>Marketing Kit</h3>
                     <span>Print Design</span>
@@ -247,7 +333,7 @@
     <section class="designer-section">
         <h2 class="section-title">Meet the Designer</h2>
         <div class="designer-card">
-            <img src="https://via.placeholder.com/150x150/6c5ce7/ffffff?text=JP+Gulfo" alt="John Paul Gulfo" class="designer-image">
+            <img src="3.jpg" alt="John Paul Gulfo" class="designer-image">
             <h3 class="designer-name">John Paul Gulfo</h3>
             <p class="designer-role">Graphic Designer</p>
             <p class="designer-bio">
@@ -272,13 +358,73 @@
          ========================================= -->
     <footer>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Behance</a>
-            <a href="#">Dribbble</a>
-            <a href="#">LinkedIn</a>
+            <a href="https://www.instagram.com/itsmeelup22?igsh=MTltZThxdmE2NWg1Yw==">Instagram</a>
+            <a href="https://www.facebook.com/itsmeeeelup.11">Facebook</a>
+            <a href="mailto:gulfopaul3@gmail.com">Gmail</a>
+            <a href="https://www.tiktok.com/@paaultzyyy?_r=1&_t=ZS-94astcz7Gc6
+">Tiktok</a>
         </div>
-        <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Paul gulfo. All rights reserved.</p>
     </footer>
+
+    <!-- Background Audio Element -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="%231%20%20LoLo%20rems.MP3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => console.log('Play failed:', err));
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
 
 </body>
 </html>

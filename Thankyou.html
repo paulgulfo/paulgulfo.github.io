@@ -79,6 +79,46 @@
                 padding-top: 100px;
             }
         }
+
+        /* Background Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(245, 6, 6, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(245, 6, 6, 0.6);
+        }
+
+        .audio-control:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .audio-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -126,6 +166,65 @@
         </div>
         <p class="copyright">&copy; 2023 DesignStudio. All rights reserved.</p>
     </footer>
+
+    <!-- Background Audio Element -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="%23hugot%20%20LoLo%20rems.MP3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => console.log('Play failed:', err));
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
 
 </body>
 </html>

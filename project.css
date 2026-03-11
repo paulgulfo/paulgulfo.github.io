@@ -4,10 +4,10 @@
 :root {
   --bg-color: #0f0f0f;
   --card-bg: #1a1a1a;
-  --text-main: #ffffff;
-  --text-muted: #a0a0a0;
-  --accent-color: #6c5ce7;
-  --accent-hover: #5649c0;
+  --text-main: #f7f4f4;
+  --text-muted: #bdbac4;
+  --accent-color: #ee0505;
+  --accent-hover: #ee0c17;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -206,7 +206,7 @@ img {
    ========================================= */
 .project-cta {
   padding: 6rem 5%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  background: linear-gradient(135deg, #1a1a1a 5%, #f00606 100%);
   text-align: center;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
@@ -230,7 +230,7 @@ img {
    ========================================= */
 footer {
   padding: 4rem 5%;
-  border-top: 1px solid #333;
+  border-top: 1px solid #070101;
   text-align: center;
 }
 
@@ -286,4 +286,44 @@ footer {
     height: 50vh;
   }
   
+}
+
+/* Background Audio Control */
+.audio-control {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(240, 2, 2, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-control:hover {
+  transform: scale(1.15);
+  box-shadow: 0 15px 40px rgba(245, 6, 6, 0.6);
+}
+
+.audio-control:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .audio-control {
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
 }
