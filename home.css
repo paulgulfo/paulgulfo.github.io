@@ -316,18 +316,87 @@ footer {
 }
 
 /* =========================================
-   7. RESPONSIVE ADJUSTMENTS
+   7. STRICT RESPONSIVE ADJUSTMENTS
    ========================================= */
-@media (max-width: 768px) {
+
+/* --- TABLET VIEW (E.g., iPads, Small Laptops) --- */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1.5rem 5%;
+  }
+
   .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
   }
-  
-  .nav-links {
-    display: none; /* In a real scenario, add a hamburger menu here */
-  }
-  
+
   .portfolio-grid {
+    /* Mula 3 columns sa desktop, magiging 2 columns sa tablet */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- MOBILE VIEW (E.g., iPhones, Android phones) --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  /* Tinatago ang nav links para sa mobile hamburger menu (optional) */
+  .nav-links {
+    display: none; 
+  }
+
+  .hero {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem; /* Saktong laki lang para sa phone screens */
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin: 0 auto 2rem auto;
+  }
+
+  .hero-btns {
+    flex-direction: column; /* Stacked buttons sa mobile */
+    width: 100%;
+  }
+
+  .btn-primary, .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-grid {
+    /* Isang column na lang para hindi siksikan sa phone */
+    grid-template-columns: 1fr; 
+  }
+
+  .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* --- SMALL MOBILE FIX (Extra small devices) --- */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .project-image {
+    height: 250px; /* Mas maliit na height para sa maliit na screen */
   }
 }
