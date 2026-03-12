@@ -121,175 +121,97 @@
             .hero-btns { flex-direction: column; }
         }
 
-        /* --- MOBILE LANDSCAPE (Naka-higa) --- */
-        /* Ito ang aayos sa font at image pag naka-landscape ang phone */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                grid-template-columns: 1.2fr 0.8fr; /* Side-by-side para hindi mahaba ang scroll */
-                gap: 1.5rem;
-                padding-top: 80px; /* Para hindi matakpan ng navbar */
-                align-items: center;
-            }
+        /* =========================================
+   DESIGNER CARD - STUDENT ID STYLE SA MOBILE LANDSCAPE
+   ========================================= */
+/* I-add mo 'to sa dulo ng <style> tag mo (bago ang </style>).
+   Tapos hanapin mo yung dating @media (max-height: 500px) and (orientation: landscape)
+   at idagdag mo yung designer part sa loob niyan (o palitan ng buong bagong media query sa ibaba). */
 
-            .hero h1 {
-                font-size: clamp(1.5rem, 8vh, 2.5rem); /* Height-based scaling para kasya sa screen */
-                margin-bottom: 0.5rem;
-            }
+.designer-content {
+    flex: 1;
+    text-align: center;
+}
 
-            .hero h6 { font-size: 0.9rem; margin-bottom: 5px; }
-
-            .hero p {
-                font-size: 0.8rem; /* Pinalit ang font size para hindi masyadong malaki */
-                line-height: 1.3;
-                margin-bottom: 1rem;
-            }
-
-            .hero-image-box {
-                height: 250px; /* Mas maikli para kasya sa landscape view */
-                width: 100%;
-            }
-
-            .hero-btns {
-                flex-direction: row; /* Pagtabihin ang buttons */
-                gap: 10px;
-            }
-
-            .btn-primary, .btn-outline {
-                padding: 8px 16px;
-                font-size: 0.8rem;
-            }
-            
-            /* Navbar adjustment para sa landscape */
-            .navbar { padding: 0.5rem 5%; }
-            .nav-links li a { font-size: 0.75rem; }
-        }
-
-        /* Designer & Other Sections */
-        .designer-section { padding: 4rem 5%; text-align: center; background-color: #141414; }
-        .designer-card { max-width: 500px; margin: 0 auto; background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid #333; }
-        .designer-image { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-color); margin-bottom: 1rem; }
-        
-        /* Audio Control */
-        .audio-control { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: #f10303; border-radius: 50%; color: white; cursor: pointer; z-index: 1000; border: none; font-size: 20px; }
-       /* Hanapin at palitan ang @media (max-width: 768px) na part sa loob ng <style> */
-
-@media (max-width: 768px) {
-    /* 1. NAVIGATION ADJUSTMENT */
-    .navbar {
-        flex-direction: column; /* Ginagawang vertical ang logo at button */
-        padding: 1rem;
-        height: auto;
-        position: relative; /* Para hindi matakpan ang content */
+/* STUDENT ID LAYOUT SA LANDSCAPE (parang totoong Student ID Card) */
+@media (max-height: 500px) and (orientation: landscape) {
+    
+    .designer-section {
+        padding: 3rem 5%;
     }
 
-    .nav-links {
-        display: flex; /* Pinapakita na ang links */
-        flex-wrap: wrap; /* Para mag-wrap kung masyadong marami */
-        justify-content: center;
-        gap: 1rem;
-        margin: 1rem 0;
-        padding: 0;
-    }
-
-    .nav-links li a {
-        font-size: 0.85rem;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 5px 12px;
+    .designer-card {
+        max-width: 720px;                  /* mas malapad para ID card feel */
+        width: 92%;
+        margin: 0 auto;
+        padding: 2rem 2.5rem;
+        display: flex !important;          /* SIDE-BY-SIDE */
+        flex-direction: row !important;
+        align-items: center;
+        gap: 2.5rem;
+        background: linear-gradient(135deg, #1f1f1f, #141414);
+        border: 4px solid var(--accent-color);   /* parang ID border */
+        box-shadow: 0 15px 35px rgba(245, 6, 6, 0.35);
         border-radius: 20px;
     }
 
-    /* 2. HERO SECTION ADJUSTMENT */
-    .hero {
-        grid-template-columns: 1fr; /* Isang column lang */
-        text-align: center;
-        padding-top: 2rem;
-        height: auto;
-        gap: 2rem;
+    .designer-image {
+        width: 160px !important;
+        height: 160px !important;
+        flex-shrink: 0;                    /* hindi mag-stretch */
+        border: 6px solid #fff;            /* classic ID photo border */
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    .hero-content {
-        order: 2; /* Nilalagay ang text sa ilalim ng image */
+    .designer-content {
+        text-align: left;                  /* parang ID text alignment */
+        flex: 1;
     }
 
-    .hero-image-box {
-        order: 1; /* Nilalagay ang image sa taas */
-        width: 80%; /* Mas maliit na box sa mobile */
-        height: 300px;
-        margin: 0 auto;
+    .designer-name {
+        font-size: 1.85rem;
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+        color: white;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
+    .designer-role {
+        font-size: 1.05rem;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 1.2rem;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+        padding-bottom: 0.8rem;
     }
 
-    .hero-btns {
-        flex-direction: column; /* Stacked buttons */
-        gap: 10px;
+    .designer-bio {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: #ddd;
+        margin-bottom: 1.5rem;
     }
 
-    .btn-primary, .btn-outline {
-        width: 100%;
-        display: block;
+    .designer-card .btn-primary {
+        width: auto;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        align-self: flex-start;
     }
 
-    /* 3. DESIGNER CARD */
-    .designer-card {
-        width: 90%;
-        padding: 2rem 1rem;
+    /* Extra ID feel */
+    .designer-card::before {
+        content: "DESIGNER ID";
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.3);
+        font-weight: 700;
+        letter-spacing: 2px;
     }
 }
-
-        /* Designer Profile Section */
-        .designer-section {
-            padding: 6rem 5%;
-            text-align: center;
-            background-color: #141414;
-        }
-
-        .designer-card {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            border: 1px solid #333;
-            transition: var(--transition);
-        }
-
-        .designer-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .designer-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
-        }
-
-        .designer-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .designer-role {
-            color: var(--accent-color);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        .designer-bio {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
 
         /* CTA Section for Homepage */
         .cta-section {
