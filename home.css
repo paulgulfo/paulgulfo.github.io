@@ -108,27 +108,14 @@ img {
   position: relative;
 }
 
-/* --- Default Desktop & Portrait Style --- */
 .hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem); 
+  font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
   line-height: 1.1;
   font-weight: 800;
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, #fff, #f70505);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block; /* Sinisiguro na ang gradient ay sakop lang ang text */
-}
-
-/* --- Landscape Adjustment (Mobile/Small Screens) --- */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-  .hero h1 {
-    /* Ginawa nating 10vh para sumunod sa taas ng screen, 
-       at pinaliit ang max limit sa 3rem para hindi mag-overlap */
-    font-size: clamp(1.8rem, 10vh, 3rem); 
-    line-height: 1.05; /* Mas dikit nang konti para tipid sa space */
-    margin-bottom: 0.8rem; /* Binawasan ang space sa ilalim */
-  }
 }
 .hero h6 {
   font-size: clamp(2rem, 3vw, 2rem);
