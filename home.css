@@ -347,35 +347,94 @@ img {
 }
 
 /* =========================================
-   MOBILE LANDSCAPE - Designer Card becomes SIDE-BY-SIDE
+   DESIGNER PROFILE SECTION - FIXED FOR MOBILE LANDSCAPE
+   ========================================= */
+/* Ito yung bagong/updated rules — i-replace mo lang yung existing 
+   .designer-section at .designer-card styles sa <style> tag mo 
+   (tanggalin yung duplicates) at idagdag ang landscape media query sa ibaba. */
+
+.designer-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background-color: #141414;
+}
+
+.designer-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    transition: var(--transition);
+}
+
+.designer-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.designer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    display: block;
+}
+
+.designer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+}
+
+.designer-role {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.designer-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* =========================================
+   MOBILE LANDSCAPE - DESIGNER CARD (Naka-higa ang phone)
    ========================================= */
 @media (max-height: 500px) and (orientation: landscape) {
     .designer-section {
-        padding: 3rem 5%;           /* mas compact para sa maikling screen */
+        padding: 3rem 5%;           /* mas compact para hindi mag-scroll sa maikling screen */
     }
 
     .designer-card {
-        max-width: 85%;
-        flex-direction: row;        /* ← LANDSCAPE MODE */
-        align-items: flex-start;
-        text-align: left;
-        gap: 2rem;
-        padding: 2.5rem;
+        max-width: 90%;             /* mas malapad para magamit ang landscape width */
+        width: 90%;
+        padding: 2rem 1.5rem;
+        margin: 0 auto;
     }
 
     .designer-image {
-        width: 140px;
-        height: 140px;
-        margin: 0;                  /* walang margin sa baba */
-    }
-
-    .designer-content {
-        flex: 1;
+        width: 120px;               /* medyo mas maliit para kasya sa landscape */
+        height: 120px;
+        margin-bottom: 1rem;
     }
 
     .designer-name {
-        font-size: 1.6rem;
-        margin-top: 0;
+        font-size: 1.6rem;          /* mas maliit para hindi mag-overflow */
+    }
+
+    .designer-role {
+        font-size: 0.95rem;
     }
 
     .designer-bio {
@@ -383,17 +442,12 @@ img {
         line-height: 1.5;
     }
 
-    .btn-primary {
-        width: fit-content;         /* hindi full width sa landscape */
-        padding: 0.9rem 2rem;
-    }
-}
-
-/* Portrait mobile (existing mo, pinanatili lang para hindi mag-overlap) */
-@media (max-width: 768px) and (orientation: portrait) {
+    /* Siguradong VERTICAL STACK (image sa taas, texts sa baba) */
     .designer-card {
-        width: 90%;
-        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
 
