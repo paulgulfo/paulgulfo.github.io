@@ -386,9 +386,10 @@ footer {
         gap: 10px;
     }
 
-    .btn-primary, .btn-outline {
-        padding: 8px 15px;
-        font-size: 0.7rem;
+    .hero-btns .btn-primary, 
+    .hero-btns .btn-outline {
+        width: 100%;
+        max-width: 280px;
     }
 
     /* 5. Designer Card Adjustment */
