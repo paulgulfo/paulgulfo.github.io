@@ -347,107 +347,125 @@ img {
 }
 
 /* =========================================
-   DESIGNER PROFILE SECTION - FIXED FOR MOBILE LANDSCAPE
+   MOBILE LANDSCAPE - LAHAT NG IMAGE AT FONT 
+   STAY PABABA (VERTICAL STACK) KAHIT NAKA-HIGA
    ========================================= */
-/* Ito yung bagong/updated rules — i-replace mo lang yung existing 
-   .designer-section at .designer-card styles sa <style> tag mo 
-   (tanggalin yung duplicates) at idagdag ang landscape media query sa ibaba. */
+/* I-replace mo yung buong existing @media (max-height: 500px) and (orientation: landscape)
+   sa <style> tag mo ng ganito. Tapos tanggalin yung duplicate hero rules sa loob. */
 
-.designer-section {
-    padding: 6rem 5%;
-    text-align: center;
-    background-color: #141414;
-}
-
-.designer-card {
-    max-width: 500px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 3rem 2rem;
-    border-radius: 16px;
-    border: 1px solid #333;
-    transition: var(--transition);
-}
-
-.designer-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-}
-
-.designer-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    object-fit: cover;
-    border: 3px solid var(--accent-color);
-    display: block;
-}
-
-.designer-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 1rem 0 0.5rem;
-    text-align: center;
-}
-
-.designer-role {
-    color: var(--accent-color);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.designer-bio {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* =========================================
-   MOBILE LANDSCAPE - DESIGNER CARD (Naka-higa ang phone)
-   ========================================= */
 @media (max-height: 500px) and (orientation: landscape) {
-    .designer-section {
-        padding: 3rem 5%;           /* mas compact para hindi mag-scroll sa maikling screen */
+
+    /* 1. GLOBAL - Lahat ng section mas compact at PABABA PADIN */
+    .hero,
+    .designer-card,
+    .portfolio-grid,
+    .services-grid,
+    .cta-section {
+        padding: 2rem 5% !important;   /* mas maliit na padding para kasya */
     }
 
-    .designer-card {
-        max-width: 90%;             /* mas malapad para magamit ang landscape width */
-        width: 90%;
-        padding: 2rem 1.5rem;
+    /* 2. HERO - Pilitin na VERTICAL (pababa) kahit landscape */
+    .hero {
+        grid-template-columns: 1fr !important;   /* 1 column lang - image sa taas, text sa baba */
+        gap: 1.5rem;
+        padding-top: 80px;
+        min-height: auto;
+    }
+    .hero-image-box {
+        order: 1;
+        width: 85% !important;
+        height: 220px !important;        /* mas maikli para hindi mag-scroll agad */
         margin: 0 auto;
     }
-
-    .designer-image {
-        width: 120px;               /* medyo mas maliit para kasya sa landscape */
-        height: 120px;
-        margin-bottom: 1rem;
+    .hero-content {
+        order: 2;
+        text-align: center;
     }
-
-    .designer-name {
-        font-size: 1.6rem;          /* mas maliit para hindi mag-overflow */
+    .hero h1 {
+        font-size: clamp(1.6rem, 6vh, 2.4rem) !important;
+        margin-bottom: 0.8rem;
     }
-
-    .designer-role {
+    .hero h6 {
         font-size: 0.95rem;
     }
-
-    .designer-bio {
-        font-size: 0.9rem;
-        line-height: 1.5;
+    .hero p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    .hero-btns {
+        flex-direction: column;          /* buttons pababa din */
+        gap: 12px;
+    }
+    .btn-primary, .btn-outline {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        width: 100%;
     }
 
-    /* Siguradong VERTICAL STACK (image sa taas, texts sa baba) */
+    /* 3. DESIGNER CARD - 100% PABABA (image taas, name, role, bio, button baba) */
+    .designer-section {
+        padding: 3rem 5% !important;
+    }
     .designer-card {
-        display: flex;
-        flex-direction: column;
+        width: 92% !important;
+        max-width: none;
+        padding: 2rem 1.5rem;
+        display: flex !important;
+        flex-direction: column !important;
         align-items: center;
         text-align: center;
+    }
+    .designer-image {
+        width: 110px !important;
+        height: 110px !important;
+        margin-bottom: 1rem;
+    }
+    .designer-name {
+        font-size: 1.55rem !important;
+        margin: 0.8rem 0 0.4rem;
+    }
+    .designer-role {
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem;
+    }
+    .designer-bio {
+        font-size: 0.9rem !important;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    /* 4. PORTFOLIO GRID - 1 column lang sa landscape para puro pababa */
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;   /* 1 card per row */
+        gap: 1.5rem;
+    }
+    .project-image {
+        height: 220px !important;
+    }
+
+    /* 5. SERVICES - 1 column lang din */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    /* 6. NAVBAR - Compact */
+    .navbar {
+        padding: 0.6rem 5% !important;
+    }
+    .nav-links li a {
+        font-size: 0.8rem !important;
+    }
+
+    /* 7. ALL FONTS & IMAGES - Smaller para hindi mag-overflow */
+    h1, h2, h3 {
+        font-size: clamp(1.4rem, 5vh, 2.2rem) !important;
+    }
+    p {
+        font-size: 0.88rem !important;
+    }
+    img {
+        max-height: 240px !important;   /* lahat ng image mas maikli */
     }
 }
 
