@@ -46,7 +46,8 @@ img {
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;    /* Ito ang mag-cecenter sa Logo, Links, at Button */
+  align-items: center;
+  padding: 2rem 5%;
   position: fixed;
   width: 100%;
   top: 0;
@@ -75,7 +76,6 @@ img {
   font-weight: 500;
   color: var(--text-muted);
   transition: var(--transition);
-  
 }
 
 .nav-links a:hover {
@@ -316,107 +316,18 @@ footer {
 }
 
 /* =========================================
-   7. STRICT RESPONSIVE ADJUSTMENTS
+   7. RESPONSIVE ADJUSTMENTS
    ========================================= */
-
-/* --- UNIVERSAL LANDSCAPE ADJUSTMENTS (Mobile/Small Tablets) --- */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    
-    /* 1. Navbar - Liitan para hindi kainin ang screen */
-    .navbar {
-        padding: 0.5rem 5%;
-        flex-direction: row !important; /* Siguradong side-by-side ang logo at buttons */
-    }
-    
-    .nav-links {
-        display: flex !important;
-        margin: 0;
-        gap: 0.8rem;
-    }
-
-    .nav-links li a {
-        font-size: 0.7rem;
-        padding: 4px 10px;
-    }
-
-    /* 2. Hero Section - Side-by-Side Layout */
-    .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr; /* Text sa kaliwa, Image sa kanan */
-        gap: 1.5rem;
-        padding: 60px 5% 20px; /* Binawasan ang padding sa taas at baba */
-        min-height: auto;
-        align-items: center;
-        text-align: left; /* Ibalik sa kaliwa ang alignment */
-    }
-
-    .hero-content {
-        order: 1; /* Text muna */
-    }
-
-    /* 3. Typography - Scaling based on Height (vh) */
-    .hero h1 {
-        font-size: clamp(1.5rem, 10vh, 2.5rem); /* Sumusunod sa taas ng screen */
-        line-height: 1;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero h6 {
-        font-size: 0.8rem;
-        margin-bottom: 5px;
-    }
-
-    .hero p {
-        font-size: 0.75rem; /* Mas maliit na body text para hindi kailangan mag-scroll */
-        line-height: 1.3;
-        margin-bottom: 1rem;
-        max-width: 90%;
-    }
-
-    /* 4. Hero Image - Resize para magkasya sa vertical view */
-    .hero-image-box {
-        order: 2; /* Image sa kanan */
-        width: 100%;
-        height: 220px; /* Limitadong height para kitang-kita agad */
-        margin: 0;
-    }
-
-    .hero-btns {
-        flex-direction: row; /* Buttons ay magkatabi, hindi stacked */
-        gap: 10px;
-    }
-
-    .btn-primary, .btn-outline {
-        padding: 8px 15px;
-        font-size: 0.7rem;
-    }
-
-    /* 5. Designer Card Adjustment */
-    .designer-card {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-        max-width: 90%;
-        padding: 1.5rem;
-    }
-
-    .designer-image {
-        width: 100px;
-        height: 100px;
-        margin: 0 1.5rem 0 0;
-    }
-
-    .designer-name { font-size: 1.2rem; }
-}
-
-/* --- SMALL MOBILE FIX (Extra small devices) --- */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 3rem;
   }
   
-  .project-image {
-    height: 250px; /* Mas maliit na height para sa maliit na screen */
+  .nav-links {
+    display: none; /* In a real scenario, add a hamburger menu here */
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
 }
