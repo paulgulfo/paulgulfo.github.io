@@ -283,6 +283,119 @@ img {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+/* =========================================
+   DESIGNER PROFILE SECTION (Default + Mobile)
+   ========================================= */
+.designer-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background-color: #141414;
+}
+
+.designer-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.designer-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.designer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    flex-shrink: 0;
+}
+
+.designer-content {
+    width: 100%;
+}
+
+.designer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+}
+
+.designer-role {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.designer-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   MOBILE LANDSCAPE - Designer Card becomes SIDE-BY-SIDE
+   ========================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+    .designer-section {
+        padding: 3rem 5%;           /* mas compact para sa maikling screen */
+    }
+
+    .designer-card {
+        max-width: 85%;
+        flex-direction: row;        /* ← LANDSCAPE MODE */
+        align-items: flex-start;
+        text-align: left;
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+
+    .designer-image {
+        width: 140px;
+        height: 140px;
+        margin: 0;                  /* walang margin sa baba */
+    }
+
+    .designer-content {
+        flex: 1;
+    }
+
+    .designer-name {
+        font-size: 1.6rem;
+        margin-top: 0;
+    }
+
+    .designer-bio {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .btn-primary {
+        width: fit-content;         /* hindi full width sa landscape */
+        padding: 0.9rem 2rem;
+    }
+}
+
+/* Portrait mobile (existing mo, pinanatili lang para hindi mag-overlap) */
+@media (max-width: 768px) and (orientation: portrait) {
+    .designer-card {
+        width: 90%;
+        padding: 2rem 1rem;
+    }
+}
 
 /* =========================================
    6. FOOTER
