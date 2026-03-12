@@ -133,7 +133,75 @@
     text-align: center;
 }
 
-/* STUDENT ID LAYOUT SA LANDSCAPE (parang totoong Student ID Card) */
+/* =========================================
+   DESIGNER CARD - CLEANED + HORIZONTAL (SIDE-BY-SIDE)
+   SA MOBILE LANDSCAPE ONLY (Student ID Style)
+   ========================================= */
+/* I-replace mo lahat ng designer-related styles sa <style> tag mo 
+   (mula sa .designer-section hanggang .designer-bio) 
+   at idagdag mo 'to sa dulo bago ang </style>. */
+
+.designer-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background-color: #141414;
+}
+
+.designer-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    transition: var(--transition);
+    display: block;                    /* default: vertical stack (portrait + desktop) */
+}
+
+.designer-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.designer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    display: block;
+}
+
+.designer-content {
+    text-align: center;
+}
+
+.designer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+    color: white;
+}
+
+.designer-role {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.designer-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   MOBILE LANDSCAPE ONLY - HORIZONTAL (Parang Student ID)
+   ========================================= */
 @media (max-height: 500px) and (orientation: landscape) {
     
     .designer-section {
@@ -141,75 +209,71 @@
     }
 
     .designer-card {
-        max-width: 720px;                  /* mas malapad para ID card feel */
+        max-width: 720px;
         width: 92%;
         margin: 0 auto;
-        padding: 2rem 2.5rem;
-        display: flex !important;          /* SIDE-BY-SIDE */
+        padding: 2.5rem 3rem;
+        display: flex !important;           /* HORIZONTAL = side-by-side */
         flex-direction: row !important;
         align-items: center;
         gap: 2.5rem;
+        position: relative;                 /* kailangan para sa "DESIGNER ID" label */
         background: linear-gradient(135deg, #1f1f1f, #141414);
-        border: 4px solid var(--accent-color);   /* parang ID border */
-        box-shadow: 0 15px 35px rgba(245, 6, 6, 0.35);
-        border-radius: 20px;
+        border: 5px solid var(--accent-color);
+        box-shadow: 0 20px 40px rgba(245, 6, 6, 0.4);
+        border-radius: 24px;
     }
 
     .designer-image {
-        width: 160px !important;
-        height: 160px !important;
-        flex-shrink: 0;                    /* hindi mag-stretch */
-        border: 6px solid #fff;            /* classic ID photo border */
-        border-radius: 50%;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        width: 170px !important;
+        height: 170px !important;
+        margin: 0;
+        flex-shrink: 0;
+        border: 8px solid #ffffff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
 
     .designer-content {
-        text-align: left;                  /* parang ID text alignment */
+        text-align: left;
         flex: 1;
     }
 
     .designer-name {
-        font-size: 1.85rem;
-        font-weight: 800;
-        margin-bottom: 0.3rem;
-        color: white;
+        font-size: 1.95rem;
+        margin-bottom: 0.4rem;
     }
 
     .designer-role {
-        font-size: 1.05rem;
-        color: var(--accent-color);
-        text-transform: uppercase;
+        font-size: 1.1rem;
         letter-spacing: 3px;
-        margin-bottom: 1.2rem;
-        border-bottom: 2px solid rgba(255,255,255,0.2);
+        border-bottom: 2px solid rgba(255,255,255,0.25);
         padding-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
     }
 
     .designer-bio {
-        font-size: 0.92rem;
-        line-height: 1.55;
-        color: #ddd;
-        margin-bottom: 1.5rem;
+        font-size: 0.93rem;
+        line-height: 1.6;
+        color: #e0e0e0;
     }
 
     .designer-card .btn-primary {
         width: auto;
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        padding: 0.85rem 2.2rem;
+        font-size: 1.05rem;
         align-self: flex-start;
     }
 
-    /* Extra ID feel */
+    /* Extra "Student ID" label */
     .designer-card::before {
         content: "DESIGNER ID";
         position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 0.75rem;
-        color: rgba(255,255,255,0.3);
+        top: 18px;
+        right: 25px;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.35);
         font-weight: 700;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
     }
 }
 
