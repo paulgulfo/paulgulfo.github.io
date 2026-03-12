@@ -46,8 +46,7 @@ img {
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem 5%;
+  align-items: center;    /* Ito ang mag-cecenter sa Logo, Links, at Button */
   position: fixed;
   width: 100%;
   top: 0;
@@ -76,6 +75,7 @@ img {
   font-weight: 500;
   color: var(--text-muted);
   transition: var(--transition);
+  
 }
 
 .nav-links a:hover {
@@ -386,10 +386,9 @@ footer {
         gap: 10px;
     }
 
-    .hero-btns .btn-primary, 
-    .hero-btns .btn-outline {
-        width: 100%;
-        max-width: 280px;
+    .btn-primary, .btn-outline {
+        padding: 8px 15px;
+        font-size: 0.7rem;
     }
 
     /* 5. Designer Card Adjustment */
