@@ -181,50 +181,66 @@ img {
 /* =========================================
    4. PORTFOLIO GRID
    ========================================= */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
 
-@media (max-width: 480px) {
-  .section-title {
-    /* Mas maliit na title para hindi kainin ang screen */
-    font-size: 1.8rem; 
-    margin-bottom: 2.5rem;
-    padding: 0 1rem;
-  }
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0 5% 5rem 5%;
+}
 
-  .portfolio-grid {
-    /* Isang column lang para malinaw ang bawat project */
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
-    padding: 0 1.5rem 4rem 1.5rem;
-  }
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  group: project;
+}
 
-  .project-card {
-    border-radius: 12px; /* Bahagyang pinaliit ang kanto */
-  }
+.project-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
 
-  .project-image {
-    /* Height na sakto lang sa portrait para hindi masyadong mahaba */
-    height: 250px; 
-  }
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
 
-  .project-info {
-    /* Dahil touch screen ang portrait, mas safe na 
-       naka-display na agad ang title o 80% visible */
-    opacity: 1;
-    transform: translateY(0);
-    padding: 1.2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 30%, transparent);
-  }
+.project-info {
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
 
-  .project-info h3 {
-    /* Mas readable na font size para sa mobile */
-    font-size: 1.25rem;
-    margin-bottom: 0.3rem;
-  }
+.project-card:hover .project-info {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .project-info span {
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
-  }
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-info span {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* =========================================
