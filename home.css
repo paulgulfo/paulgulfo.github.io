@@ -89,6 +89,7 @@ img {
   border-radius: 50px;
   font-weight: 600;
   transition: var(--transition);
+  text-align: center;
 }
 
 .btn-primary:hover {
@@ -200,7 +201,7 @@ img {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  group: project;
+  /* group: project; ← tinanggal, invalid */
 }
 
 .project-image {
@@ -241,6 +242,45 @@ img {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+/* =========================================
+   MOBILE LANDSCAPE FIX
+   ========================================= */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .section-title {
+    font-size: 2rem;           /* mas maliit sa landscape phone */
+    margin-bottom: 3rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* siguradong 2 columns */
+    gap: 1.5rem;
+    padding: 0 5% 3rem 5%;
+  }
+
+  .project-image {
+    height: 240px;             /* mas compact para hindi mag-scroll agad */
+  }
+
+  .project-info {
+    opacity: 1;                /* always visible sa touch devices */
+    transform: translateY(0);
+    padding: 1.2rem;
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-info span {
+    font-size: 0.85rem;
+  }
+
+  /* Optional: mas malakas na shadow para standout pa rin */
+  .project-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* =========================================
