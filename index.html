@@ -55,76 +55,227 @@
             object-fit: cover;
         }
 
-        @keyframes floatImage {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-image-box {
-                height: 300px;
-            }
+        /* Hero Section - Default Layout (Desktop) */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 80vh;
+            padding: 2rem 5%;
         }
 
-        /* Designer Profile Section */
-        .designer-section {
-            padding: 6rem 5%;
-            text-align: center;
-            background-color: #141414;
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .designer-card {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            border: 1px solid #333;
-            transition: var(--transition);
-        }
-
-        .designer-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .designer-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
-        }
-
-        .designer-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .designer-role {
-            color: var(--accent-color);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        .designer-bio {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            font-weight: 800;
             margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #f70505);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        .hero-image-box {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: #f50606;
+            border-radius: 16px;
+            border: 2px solid var(--accent-color);
+            overflow: hidden;
+            transition: all 0.5s ease;
+            animation: floatImage 3s ease-in-out infinite;
+            justify-self: center;
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- MOBILE PORTRAIT (Naka-tayo) --- */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .navbar { flex-direction: column; height: auto; padding: 1rem; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 1rem 0; }
+            
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .hero-content { order: 2; }
+            .hero-image-box { order: 1; width: 80%; height: 300px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-btns { flex-direction: column; }
+        }
+
+        /* =========================================
+   DESIGNER CARD - STUDENT ID STYLE SA MOBILE LANDSCAPE
+   ========================================= */
+/* I-add mo 'to sa dulo ng <style> tag mo (bago ang </style>).
+   Tapos hanapin mo yung dating @media (max-height: 500px) and (orientation: landscape)
+   at idagdag mo yung designer part sa loob niyan (o palitan ng buong bagong media query sa ibaba). */
+
+.designer-content {
+    flex: 1;
+    text-align: center;
+}
+
+/* =========================================
+   DESIGNER CARD - CLEANED + HORIZONTAL (SIDE-BY-SIDE)
+   SA MOBILE LANDSCAPE ONLY (Student ID Style)
+   ========================================= */
+/* I-replace mo lahat ng designer-related styles sa <style> tag mo 
+   (mula sa .designer-section hanggang .designer-bio) 
+   at idagdag mo 'to sa dulo bago ang </style>. */
+
+.designer-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background-color: #141414;
+}
+
+.designer-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    transition: var(--transition);
+    display: block;                    /* default: vertical stack (portrait + desktop) */
+}
+
+.designer-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.designer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    display: block;
+}
+
+.designer-content {
+    text-align: center;
+}
+
+.designer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+    color: white;
+}
+
+.designer-role {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.designer-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   MOBILE LANDSCAPE ONLY - HORIZONTAL (Parang Student ID)
+   ========================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+    
+    .designer-section {
+        padding: 3rem 5%;
+    }
+
+    .designer-card {
+        max-width: 720px;
+        width: 92%;
+        margin: 0 auto;
+        padding: 2.5rem 3rem;
+        display: flex !important;           /* HORIZONTAL = side-by-side */
+        flex-direction: row !important;
+        align-items: center;
+        gap: 2.5rem;
+        position: relative;                 /* kailangan para sa "DESIGNER ID" label */
+        background: linear-gradient(135deg, #1f1f1f, #141414);
+        border: 5px solid var(--accent-color);
+        box-shadow: 0 20px 40px rgba(245, 6, 6, 0.4);
+        border-radius: 24px;
+    }
+
+    .designer-image {
+        width: 170px !important;
+        height: 170px !important;
+        margin: 0;
+        flex-shrink: 0;
+        border: 8px solid #ffffff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .designer-content {
+        text-align: left;
+        flex: 1;
+    }
+
+    .designer-name {
+        font-size: 1.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .designer-role {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        border-bottom: 2px solid rgba(255,255,255,0.25);
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .designer-bio {
+        font-size: 0.93rem;
+        line-height: 1.6;
+        color: #e0e0e0;
+    }
+
+    .designer-card .btn-primary {
+        width: auto;
+        padding: 0.85rem 2.2rem;
+        font-size: 1.05rem;
+        align-self: flex-start;
+    }
+
+    /* Extra "Student ID" label */
+    .designer-card::before {
+        content: "DESIGNER ID";
+        position: absolute;
+        top: 18px;
+        right: 25px;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.35);
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+}
 
         /* CTA Section for Homepage */
         .cta-section {
@@ -244,7 +395,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-      <center>  <a href="contact.html" class="btn-primary">Let's Talk</a> </center>
+        <a href="contact.html" class="btn-primary">Let's Talk</a>
     </nav>
 
     <!-- =========================================
@@ -327,13 +478,15 @@
         </div>
     </section>
 
-    <!-- =========================================
-         5. DESIGNER PROFILE SECTION
-         ========================================= -->
-    <section class="designer-section">
-        <h2 class="section-title">Meet the Designer</h2>
-        <div class="designer-card">
-            <img src="3.jpg" alt="John Paul Gulfo" class="designer-image">
+   <!-- =========================================
+     5. DESIGNER PROFILE SECTION
+     ========================================= -->
+<section class="designer-section">
+    <h2 class="section-title">Meet the Designer</h2>
+    <div class="designer-card">
+        <img src="3.jpg" alt="John Paul Gulfo" class="designer-image">
+        
+        <div class="designer-content">
             <h3 class="designer-name">John Paul Gulfo</h3>
             <p class="designer-role">Graphic Designer</p>
             <p class="designer-bio">
@@ -342,8 +495,8 @@
             </p>
             <a href="about.html" class="btn-primary">Learn More</a>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- =========================================
          6. CTA SECTION
          ========================================= -->
@@ -367,7 +520,7 @@
         <p class="copyright">&copy; 2026 Paul gulfo. All rights reserved.</p>
     </footer>
 
-    <<!-- Background Audio Element -->
+    <!-- Background Audio Element -->
 <audio id="backgroundAudio" loop>
     <source src="1LoLorems.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
