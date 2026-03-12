@@ -64,15 +64,73 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-image-box {
-                height: 300px;
-            }
-        }
+       /* Hanapin at palitan ang @media (max-width: 768px) na part sa loob ng <style> */
+
+@media (max-width: 768px) {
+    /* 1. NAVIGATION ADJUSTMENT */
+    .navbar {
+        flex-direction: column; /* Ginagawang vertical ang logo at button */
+        padding: 1rem;
+        height: auto;
+        position: relative; /* Para hindi matakpan ang content */
+    }
+
+    .nav-links {
+        display: flex; /* Pinapakita na ang links */
+        flex-wrap: wrap; /* Para mag-wrap kung masyadong marami */
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 0;
+    }
+
+    .nav-links li a {
+        font-size: 0.85rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 5px 12px;
+        border-radius: 20px;
+    }
+
+    /* 2. HERO SECTION ADJUSTMENT */
+    .hero {
+        grid-template-columns: 1fr; /* Isang column lang */
+        text-align: center;
+        padding-top: 2rem;
+        height: auto;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        order: 2; /* Nilalagay ang text sa ilalim ng image */
+    }
+
+    .hero-image-box {
+        order: 1; /* Nilalagay ang image sa taas */
+        width: 80%; /* Mas maliit na box sa mobile */
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-btns {
+        flex-direction: column; /* Stacked buttons */
+        gap: 10px;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+        display: block;
+    }
+
+    /* 3. DESIGNER CARD */
+    .designer-card {
+        width: 90%;
+        padding: 2rem 1rem;
+    }
+}
 
         /* Designer Profile Section */
         .designer-section {
