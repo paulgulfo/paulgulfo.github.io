@@ -18,7 +18,6 @@
 .form-success{color:#8ee5a1}
 .form-error{color:#ff9999}
 
-
 /* Mobile tweaks */
 @media (max-width:720px){
   .contact-form{padding:16px}
