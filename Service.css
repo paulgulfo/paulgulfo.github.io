@@ -320,16 +320,42 @@ footer {
    8. RESPONSIVE ADJUSTMENTS
    ========================================= */
 @media (max-width: 768px) {
-  .page-header {
-    padding-top: 100px;
-  }
-  
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
+    /* Siguraduhin na ang Navbar ay hindi fixed ang height */
+    .navbar {
+        flex-direction: column; 
+        height: auto;
+        padding: 1rem;
+        gap: 10px;
+    }
+
+    /* I-display ang nav-links at payagan silang mag-wrap */
+    .nav-links {
+        display: flex !important; /* Force display */
+        flex-direction: row; /* Pahalang pa rin */
+        flex-wrap: wrap; /* Dito sila bababa pag kulang ang space */
+        justify-content: center;
+        gap: 8px; /* Mas maliit na gap para magkasya */
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links li a {
+        font-size: 0.75rem; /* Liitan ang font para magkasya lahat */
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.05); /* Optional: nilagyan ng konting box para mukhang buttons */
+        border-radius: 5px;
+        white-space: nowrap; /* Iwasang maputol ang salita */
+    }
+
+    /* I-center ang "Let's Talk" button sa ilalim */
+    .navbar .btn-primary {
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+    }
 }
