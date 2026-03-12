@@ -105,7 +105,7 @@ img {
   flex-direction: column;
   justify-content: center;
   padding: 0 5%;
-  position: relative;
+  position: center;
 }
 
 .hero h1 {
