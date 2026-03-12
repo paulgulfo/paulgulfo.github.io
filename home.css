@@ -179,49 +179,51 @@ img {
 }
 
 /* =========================================
-   4. PORTFOLIO GRID
+   MOBILE PORTRAIT OPTIMIZATION (Upright)
    ========================================= */
-@media (max-width: 932px) and (orientation: landscape) {
+
+@media (max-width: 480px) {
   .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    /* Mas maliit na title para hindi kainin ang screen */
+    font-size: 1.8rem; 
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
   }
 
   .portfolio-grid {
-    /* Ginawa nating 2 columns para hindi sobrang laki ng isang image */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 1rem;
-    padding: 0 3% 3rem 3%;
+    /* Isang column lang para malinaw ang bawat project */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+    padding: 0 1.5rem 4rem 1.5rem;
+  }
+
+  .project-card {
+    border-radius: 12px; /* Bahagyang pinaliit ang kanto */
   }
 
   .project-image {
-    /* Binabaan ang height para makita pa rin ang ibang content */
-    height: 180px; 
+    /* Height na sakto lang sa portrait para hindi masyadong mahaba */
+    height: 250px; 
   }
 
   .project-info {
-    /* Dahil walang 'hover' sa touch screens, mas mainam na 
-       ipakita na natin ang info o gawing mas subtle ang transition */
-    opacity: 1; 
+    /* Dahil touch screen ang portrait, mas safe na 
+       naka-display na agad ang title o 80% visible */
+    opacity: 1;
     transform: translateY(0);
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    padding: 1rem;
+    padding: 1.2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 30%, transparent);
   }
 
   .project-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
+    /* Mas readable na font size para sa mobile */
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
   }
 
   .project-info span {
-    font-size: 0.75rem;
-  }
-}
-
-/* Para sa mas maliliit na phones sa landscape */
-@media (max-height: 500px) {
-  .project-image {
-    height: 150px;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
   }
 }
 
