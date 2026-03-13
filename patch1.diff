@@ -1,0 +1,46 @@
+From 86e945fce4d6ee99be1c08287f7a3f59ae7e43bc Mon Sep 17 00:00:00 2001
+From: "gulfopaul3@gmail.com" <gulfopaul3@gmail.com>
+Date: Thu, 12 Mar 2026 17:03:11 +0800
+Subject: [PATCH] demo portfolio
+
+---
+ home.css   | 9 +++------
+ index.html | 2 +-
+ 2 files changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/home.css b/home.css
+index 659eeef..64d6496 100644
+--- a/home.css
++++ b/home.css
+@@ -83,12 +83,9 @@ img {
+ }
+ 
+ .btn-primary {
+-  padding: 0.8rem 1.5rem;
+-  background-color: var(--accent-color);
+-  color: white;
+-  border-radius: 50px;
+-  font-weight: 600;
+-  transition: var(--transition);
++        padding: 0.9rem 1.8rem;
++        font-size: 1rem;
++        width: 100%;
+ }
+ 
+ .btn-primary:hover {
+diff --git a/index.html b/index.html
+index a388d94..88e6180 100644
+--- a/index.html
++++ b/index.html
+@@ -299,7 +299,7 @@
+             </a>
+         </div>
+         <div style="text-align: center; margin-top: 3rem;">
+-            <a href="portfolio.html" class="btn-outline">View All Projects</a>
++            <a href="Portfolio.html" class="btn-outline">View All Projects</a>
+         </div>
+     </section>
+ 
+-- 
+2.49.0.windows.1
+
