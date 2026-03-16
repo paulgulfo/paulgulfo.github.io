@@ -286,7 +286,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
         <a href="portfolio.php?category=branding" class="filter-btn <?php echo $selectedCategory === 'branding' ? 'active' : ''; ?>">Branding</a>
         <a href="portfolio.php?category=web-design" class="filter-btn <?php echo $selectedCategory === 'web-design' ? 'active' : ''; ?>">Web Design</a>
         <a href="portfolio.php?category=ui-ux" class="filter-btn <?php echo $selectedCategory === 'ui-ux' ? 'active' : ''; ?>">UI/UX</a>
-        <a href="portfolio.php?category=print" class="filter-btn <?php echo $selectedCategory === 'print' ? 'active' : ''; ?>">Print Design</a>
+        
     </div>
 
     <!-- =========================================
@@ -336,19 +336,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
             </div>
         </a>
 
-        <!-- Project 4 - Print Design -->
-        <a href="project.html" class="project-card">
-            <img src="3.jpg" alt="Marketing Kit" class="project-image">
-            <div class="project-overlay">
-                <div class="project-info">
-                    <h3>Marketing Kit</h3>
-                    <span>Print Design</span>
-                </div>
-            </div>
-            <div class="project-link">
-                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-            </div>
-        </a>
+        
 
         <!-- Project 5 - Branding -->
         <a href="project.html" class="project-card">
