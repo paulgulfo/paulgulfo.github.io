@@ -29,3 +29,21 @@
 /* Small accessibility helpers */
 .contact-form input[required], .contact-form textarea[required]{box-shadow:none}
 .contact-form label span.required{color:var(--accent);margin-left:6px}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+        .nav-links {
+    display: none; /* In a real scenario, add a hamburger menu here */
+  }

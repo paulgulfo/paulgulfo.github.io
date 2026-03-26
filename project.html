@@ -83,30 +83,87 @@
     <!-- =========================================
          5. CASE STUDY CONTENT (Solution)
          ========================================= -->
-    <section class="case-study-section">
-        <div class="content-block reverse">
-            <div class="content-text">
-                <h2>The Solution</h2>
-                <p>Waiting...</p>
-            </div>
-            <img src="3.jpg" alt="Solution" class="content-image">
-        </div>
-    </section>
+   <section class="gallery-section">
 
-    <!-- =========================================
-         6. PROJECT GALLERY
-         ========================================= -->
-    <section class="gallery-section">
-        <h2 class="section-title">Project Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 1"></div>
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 2"></div>
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 3"></div>
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 4"></div>
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 5"></div>
-            <div class="gallery-item"><img src="3.jpg" alt="Gallery 6"></div>
-        </div>
-    </section>
+  <div class="gallery-container">
+
+    <!-- Previous / Next buttons -->
+    <button class="gallery-btn prev">❮</button>
+
+    <!-- Gallery slider -->
+    <div class="gallery-slider" id="slider">
+
+      <div class="gallery-item"><img src="1.jpg" alt="Image 1"></div>
+      <div class="gallery-item"><img src="1.jpg" alt="Image 2"></div>
+      <div class="gallery-item"><img src="1.jpg" alt="Image 3"></div>
+      <div class="gallery-item"><img src="1.jpg" alt="Image 4"></div>
+
+    </div>
+
+    <button class="gallery-btn next">❯</button>
+  </div>
+
+  <!-- Dots navigation -->
+  <div class="dots" id="dots"></div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="close" id="close">✕</span>
+    <button class="lightbox-btn lb-prev">❮</button>
+    <img id="lightbox-img">
+    <button class="lightbox-btn lb-next">❯</button>
+  </div>
+</div>
+
+</section>
+
+
+<!-- LIGHTBOX (VIEW IMAGE) -->
+<div class="lightbox" id="lightbox">
+
+  <div class="lightbox-content">
+    
+    <!-- CLOSE BUTTON -->
+    <span class="close" id="close">✕</span>
+
+    <!-- NAV BUTTONS -->
+    <button class="lightbox-btn lb-prev">❮</button>
+
+    <img id="lightbox-img" src="">
+
+    <button class="lightbox-btn lb-next">❯</button>
+
+  </div>
+
+</div>
+
+    <button class="gallery-btn next">❯</button>
+  </div>
+
+  <div class="dots" id="dots"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="close">✕</span>
+
+  <button class="lightbox-btn lb-prev">❮</button>
+  <img id="lightbox-img">
+  <button class="lightbox-btn lb-next">❯</button>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="close">✕</span>
+  <button class="lightbox-btn lb-prev">❮</button>
+  <img id="lightbox-img">
+  <button class="lightbox-btn lb-next">❯</button>
+</div>
+</section>
 
     <!-- =========================================
          7. CTA SECTION
@@ -204,7 +261,104 @@
             sessionStorage.setItem('audioPlaying', 'false');
             updateButtonState();
         });
-    </script>
+
+const slider = document.getElementById('slider');
+const items = document.querySelectorAll('.gallery-item');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const dotsContainer = document.getElementById('dots');
+
+let index = 0;
+
+/* DOTS */
+items.forEach((_, i) => {
+  const dot = document.createElement('span');
+  if(i === 0) dot.classList.add('active');
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dots span');
+
+function updateSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function goToSlide(i) {
+  index = i;
+  updateSlider();
+}
+
+/* BUTTONS */
+next.onclick = () => {
+  index = (index + 1) % items.length;
+  updateSlider();
+};
+
+prev.onclick = () => {
+  index = (index - 1 + items.length) % items.length;
+  updateSlider();
+};
+
+/* LIGHTBOX */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+const lbPrev = document.querySelector('.lb-prev');
+const lbNext = document.querySelector('.lb-next');
+
+items.forEach((item, i) => {
+  item.onclick = () => {
+    index = i;
+    showLightbox();
+  };
+});
+
+function showLightbox() {
+  lightbox.classList.add('active');
+  updateLightbox();
+}
+
+function updateLightbox() {
+  lightboxImg.src = items[index].querySelector('img').src;
+}
+
+/* LIGHTBOX NAV */
+lbNext.onclick = () => {
+  index = (index + 1) % items.length;
+  updateLightbox();
+};
+
+lbPrev.onclick = () => {
+  index = (index - 1 + items.length) % items.length;
+  updateLightbox();
+};
+
+/* CLOSE */
+closeBtn.onclick = () => lightbox.classList.remove('active');
+lightbox.onclick = (e) => {
+  if(e.target === lightbox) lightbox.classList.remove('active');
+};
+
+/* SWIPE */
+let startX = 0;
+slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) next.onclick();
+  if(endX - startX > 50) prev.onclick();
+});
+
+/* KEYBOARD */
+document.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('active')) return;
+  if(e.key === 'ArrowRight') lbNext.onclick();
+  if(e.key === 'ArrowLeft') lbPrev.onclick();
+  if(e.key === 'Escape') lightbox.classList.remove('active');
+});
+</script>
 
 </body>
 </html>
