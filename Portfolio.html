@@ -1,24 +1,3 @@
-<?php
-// =========================================
-// 1. PHP LOGIC (Optional - Dynamic Content)
-// =========================================
-
-// Get current year for footer
-$currentYear = date("Y");
-
-// Project Categories (You can modify these)
-$categories = [
-    'all' => 'All Projects',
-    'branding' => 'Branding',
-    'web-design' => 'Web Design',
-    'ui-ux' => 'UI/UX',
-    'print' => 'Print Design'
-];
-
-// Get selected category
-$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +5,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio - Graphic Design Portfolio">
     <title>Portfolio | DesignStudio</title>
+    
     <link rel="icon" type="image/png" href="1.png">
 
     <!-- Link to your global/home CSS -->
@@ -284,7 +264,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'all';
          ========================================= -->
     <div class="filter-container">
         <a href="Portfolio.html" class="filter-btn <?php echo $selectedCategory === 'all' ? 'active' : ''; ?>">All</a>
-        <a href="branding.html" class="filter-btn <?php echo $selectedCategory === 'branding' ? 'active' : ''; ?>">Branding</a>
+        <a href="all branding.html" class="filter-btn <?php echo $selectedCategory === 'branding' ? 'active' : ''; ?>">Branding</a>
         <a href="webdesign.html?category=web-design" class="filter-btn <?php echo $selectedCategory === 'web-design' ? 'active' : ''; ?>">Web Design</a>
         <a href="ui.html" class="filter-btn <?php echo $selectedCategory === 'ui-ux' ? 'active' : ''; ?>">UI/UX</a>
         
