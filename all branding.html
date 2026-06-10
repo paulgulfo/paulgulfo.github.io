@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>All Branding Projects - Design Studio</title>
+  <title>Streetwear Collection - Design Studio</title>
+
+  <link rel="icon" type="image/png" href="1.png">
+
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="all branding.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -37,25 +40,25 @@
   <section id="portfolio" class="portfolio-section">
     <h2 class="section-title">Selected Works</h2>
     <div class="portfolio-grid">
-      <a href="project.html" class="project-card">
+      
         <img src="2.png" alt="Streetwear Collection" class="project-image">
         <div class="project-overlay">
           <div class="project-info"><h3>Streetwear Collection</h3><span>Branding</span></div>
         </div>
       </a>
-      <a href="project.html" class="project-card">
+      
         <img src="5.png" alt="Startup Identity" class="project-image">
         <div class="project-overlay">
           <div class="project-info"><h3>Startup Identity</h3><span>Branding</span></div>
         </div>
       </a>
-      <a href="project.html" class="project-card">
+      
         <img src="4.png" alt="Creative Agency Brand" class="project-image">
         <div class="project-overlay">
           <div class="project-info"><h3>Creative Agency Brand</h3><span>Branding</span></div>
         </div>
       </a>
-      <a href="project.html" class="project-card">
+      
         <img src="3.png" alt="Packaging Design" class="project-image">
         <div class="project-overlay">
           <div class="project-info"><h3>Packaging Design</h3><span>Branding</span></div>
@@ -77,17 +80,42 @@
 
   <script>
     // Lightbox image zoom
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    document.querySelectorAll('.project-image').forEach(img=>{
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', e=>{
-        lightboxImg.src = img.src;
-        lightbox.classList.remove('hidden');
-        lightbox.setAttribute('aria-hidden','false');
-      });
-    });
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+document.querySelectorAll('.project-image').forEach(img => {
+  img.style.cursor = 'zoom-in';
+
+  img.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // para hindi mag-open ng project page
+
+    lightboxImg.src = this.src;
+    lightbox.classList.remove('hidden');
+    lightbox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.add('hidden');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImg.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', function(e) {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+});
     function closeLightbox(){ lightbox.classList.add('hidden'); lightbox.setAttribute('aria-hidden','true'); lightboxImg.src = ''; }
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e=>{ if(e.target === lightbox) closeLightbox(); });
@@ -100,6 +128,7 @@
       e.preventDefault();
       if(history.length>1) history.back(); else window.location.href='Portfolio.html';
     });
+    
   </script>
   
 </body>
