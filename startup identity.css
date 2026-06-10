@@ -147,16 +147,6 @@ html {
 .project-card:hover {
   transform: translateY(-6px);
 }
-/* T-shirt group slider styles */
-.tshirt-wrapper{display:flex;align-items:center;gap:12px;margin:8px 0}
-.tshirt-container{overflow-x:auto;overflow-y:hidden;flex:1;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
-.tshirt-track{display:flex;gap:20px;padding:6px;scroll-snap-type:x mandatory}
-.tshirt-track > .project-card{scroll-snap-align:start}
-.tshirt-track{display:flex;gap:20px;padding:6px}
-.tshirt-btn{background:rgba(255,255,255,0.06);border:0;color:#fff;padding:10px 12px;border-radius:8px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
-.tshirt-btn:active{transform:translateY(1px)}
-.tshirt-btn[disabled]{opacity:0.3;cursor:not-allowed}
-.tshirt-container:focus{outline:3px solid rgba(255,255,255,0.06);outline-offset:6px}
 /* Hero two-column like index */
 
 .hero-content h6{margin:8px 0;color:var(--muted);font-weight:600}
@@ -212,25 +202,6 @@ html {
 	cursor:pointer;
 	z-index:10001;
 }
-
-/* Prev/next arrows inside lightbox */
-.lightbox-nav{
-	position:absolute;
-	top:50%;
-	transform:translateY(-50%);
-	background: rgba(0,0,0,0.45);
-	color:#fff;
-	border:0;
-	padding:10px 12px;
-	font-size:28px;
-	border-radius:8px;
-	box-shadow:0 8px 30px rgba(0,0,0,0.5);
-	cursor:pointer;
-	z-index:10002;
-}
-.lightbox-prev{ left:18px }
-.lightbox-next{ right:18px }
-.lightbox-nav:hover{ background: rgba(0,0,0,0.6) }
 #lightboxImg {
   transition: transform 0.15s ease;
   transform-origin: center;
