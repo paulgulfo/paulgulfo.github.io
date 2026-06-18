@@ -274,32 +274,52 @@
          ========================================= -->
     <section id="portfolio" class="portfolio-section">
         <h2 class="section-title">Selected Works</h2>
-        <div class="portfolio-grid">
-            <!-- Project Card 1 -->
-            <a href="branding.html" class="project-card">
-                <img src="6.png" alt="Project 1" class="project-image">
-                <div class="project-info">
-                    <h3>Clothing Branding</h3>
-                    <span>Merchandise Mockups</span>
+
+        <div class="carousel" aria-label="Featured products carousel">
+           
+                        <div class="slider" data-scrollamount="80" data-left="0">
+                                <div class="carousel-track-wrapper">
+                                    <div class="carousel-track">
+                    <!-- Project Card 1 -->
+                    <a href="branding.html" class="project-card carousel-slide">
+                        <img src="6.png" alt="Project 1" class="project-image" loading="lazy">
+                        <div class="project-info">
+                            <h3>Clothing Branding</h3>
+                            <span>Merchandise Mockups</span>
+                        </div>
+                    </a>
+                     <!-- Project Card 2-->
+                    <a href="logo.html" class="project-card carousel-slide">
+                        <img src="1logo.png" alt="Project 2" class="project-image" loading="lazy">
+                        <div class="project-info">
+                            <h3>Brand Identity</h3>
+                            <span>Logo Design</span>
+                        </div>
+                    </a>
+                    <!-- Project Card 3-->
+                    <a href="webdesign.html" class="project-card carousel-slide">
+                        <img src="8.png" alt="Project 3" class="project-image" loading="lazy">
+                        <div class="project-info">
+                            <h3>Corporate Website</h3>
+                            <span>Web Design</span>
+                        </div>
+                    </a>
+                    <!-- Project Card 4 -->
+                    <a href="product.html" class="project-card carousel-slide">
+                        <img src="1Product.png" alt="Project 4" class="project-image" loading="lazy">
+                        <div class="project-info">
+                            <h3>Product Design</h3>
+                            <span>Marketing Design</span>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <!-- Project Card 2 -->
-            <a href="webdesign.html" class="project-card">
-                <img src="8.png" alt="Project 2" class="project-image">
-                <div class="project-info">
-                    <h3>Corporate Website</h3>
-                    <span>Web Design</span>
-                </div>
-            </a>
-            <!-- Project Card 3 -->
-            <a href="product.html" class="project-card">
-                <img src="1Product.png" alt="Project 3" class="project-image">
-                <div class="project-info">
-                    <h3>Product Design</h3>
-                    <span>Marketing Design</span>
-                </div>
-            </a>
+            </div>
+            </div>
+            </div>
+            <button class="carousel-btn next" aria-label="Next">›</button>
+            <div class="carousel-indicators" role="tablist"></div>
         </div>
+
         <div style="text-align: center; margin-top: 3rem;">
             <a href="Portfolio.html" class="btn-outline">View all Projects</a>
         </div>
@@ -431,6 +451,8 @@
             updateButtonState();
         });
     </script>
+</script>
+    <script src="home.js"></script>
 
 </body>
 </html>
