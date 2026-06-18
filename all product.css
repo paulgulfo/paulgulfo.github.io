@@ -1,0 +1,440 @@
+/* Landing page styles for All Webdesign (copied from branding layout)
+   - Font sizing and hero layout
+   - Carousel / card adjustments
+   - Background accent and controls
+*/
+
+:root{
+	--bg:#0f0f10;
+	--card:#0f1113;
+	--muted:#bfbfcf;
+	--accent:#ff3b3b;
+	--accent-2:#00a3ff;
+	--max-width:1100px;
+	--transition:200ms ease;
+}
+
+/* Global layout */
+html,body{height:100%;}
+body{
+	margin:0;
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: linear-gradient(180deg, #070708 0%, rgba(10,10,12,0.6) 50%), var(--bg);
+	color:#fff;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.navbar{padding:22px 5%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.1rem;color:#fff;text-decoration:none}
+
+
+.hero{
+	display:grid;
+	grid-template-columns:1fr 420px;
+	gap:2rem;
+	align-items:center;
+	max-width:var(--max-width);
+	margin:0 auto;
+	padding:48px 5% 24px;
+	text-align:left;
+}
+
+.hero p{color:var(--muted);font-size:1.05rem;max-width:760px;margin:0 auto}
+.hero-subdesc{color:var(--muted);margin:8px 0 0;max-width:720px}
+
+/* Carousel container */ 
+.carousel{max-width:var(--max-width);margin:1.2rem auto 2rem;padding:0 5%;position:relative}
+#bgEffect{height:120vh;pointer-events:none}
+
+/* Slides layout (row of cards centered) */
+.slides{display:flex;align-items:flex-start;gap:28px;will-change:transform}
+.slide{flex:0 0 auto;border-radius:16px;background:var(--card);overflow:hidden;position:relative}
+
+/* Image area */
+.slide img{display:block;width:100%;height:280px;object-fit:cover}
+
+/* Project overlay similar to Portfolio */
+.project-overlay{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);opacity:0;transition:opacity var(--transition)}
+.slide .project-info{transform:translateY(12px);transition:transform var(--transition)}
+.slide:hover .project-overlay,.slide.floating .project-overlay{opacity:1}
+.slide:hover .project-info,.slide.floating .project-info{transform:translateY(0)}
+.project-info h3{margin:0;font-size:1.05rem}
+.project-info span{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+
+/* CTA circle */
+.project-link{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--transition),transform .25s}
+.slide:hover .project-link,.slide.floating .project-link{opacity:1;transform:translate(-50%,-50%) scale(1.03)}
+
+/* Floating / lifted card */
+.slide.floating{transform:translateY(-28px) rotate(-1.6deg) scale(1.03);box-shadow:0 30px 60px rgba(0,0,0,0.6);z-index:4}
+
+/* Controls / dots */
+.controls{display:flex;justify-content:center;margin-top:18px}
+.dot{width:12px;height:12px;border-radius:999px;background:#333;border:0;margin:0 6px;cursor:pointer}
+.dot.active{background:var(--accent)}
+
+/* Responsive */
+@media (max-width:900px){
+	.hero{padding-top:80px}
+	.slides{gap:18px}
+}
+@media (max-width:720px){
+	.hero{padding-top:64px}
+	.slide img{height:240px}
+	.project-link{width:48px;height:48px}
+}
+
+/* Utilities */
+.hidden{display:none!important}
+
+/* tighten spacing for portfolio section (closer to View Work) */
+.portfolio-section{margin-top:0.6rem;padding-top:0.6rem}
+
+/* Back arrow */
+.back-arrow{
+	position:fixed;
+	top:110px; /* ilalagay sa ilalim ng navbar */
+	left:20px;
+	display:flex;
+	align-items:center;
+	gap:6px;
+	padding:10px 12px;
+	border-radius:12px;
+	background:rgba(255,255,255,0.08);
+	color:#fff;
+	text-decoration:none;
+	backdrop-filter: blur(10px);
+	transition:0.2s;
+	z-index:1000;
+}
+
+.back-arrow:hover{
+	background:var(--accent);
+	transform:translateX(-2px);
+}
+
+.back-arrow svg{
+	width:18px;
+	height:18px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#portfolio {
+  scroll-margin-top: 80px;
+}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px;
+}
+
+.project-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+}
+.project-card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Make thumbnails clearly interactive */
+.project-image{cursor:pointer;display:block;width:100%;height:auto}
+.project-image:focus{outline:3px solid rgba(255,255,255,0.12);outline-offset:4px;border-radius:8px}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+/* Hero two-column like index */
+
+.hero-content h6{margin:8px 0;color:var(--muted);font-weight:600}
+.hero-btns{display:flex;gap:12px}
+
+/* Side CTA */
+.hero-actions{position:relative}
+.hero .hero-actions{position:static}
+.side-cta{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:700}
+
+@media(max-width:900px){
+	.hero{grid-template-columns:1fr;}
+	.hero .hero-image-box{order:2}
+	.hero .hero-actions{display:none}
+}
+
+/* Lightbox (image zoom) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.hidden{
+  display:none;
+}
+
+/* Ensure the lightbox image indicates zoom state; when zoomed the JS will set cursor to zoom-out */
+#lightboxImg{
+  max-width:90vw;
+  max-height:90vh;
+  object-fit:contain;
+  transform:scale(1);
+  transition:transform 0.15s ease;
+  cursor:zoom-in;
+  outline: none;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:28px;
+  color:#fff;
+  background: rgba(0,0,0,0.45);
+  padding:8px 10px;
+  border-radius:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);
+  cursor:pointer;
+  z-index:10001;
+}
+#lightboxImg {
+  transition: transform 0.15s ease;
+  transform-origin: center;
+}
+#lightboxImg {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+
+  transform: scale(1);
+  transform-origin: center center;
+
+  transition: transform 0.1s ease;
+  will-change: transform;
+  cursor: grab;
+}
+/* Landing page styles for All Branding
+	 - Font sizing and hero layout
+	 - Carousel / card adjustments
+	 - Background accent and controls
+ */
+
+:root{
+	--bg:#0f0f10;
+	--card:#0f1113;
+	--muted:#bfbfcf;
+	--accent:#ff3b3b;
+	--accent-2:#00a3ff;
+	--max-width:1100px;
+	--transition:200ms ease;
+}
+
+/* Global layout */
+html,body{height:100%;}
+body{
+	margin:0;
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: linear-gradient(180deg, #070708 0%, rgba(10,10,12,0.6) 50%), var(--bg);
+	color:#fff;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.navbar{padding:22px 5%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.1rem;color:#fff;text-decoration:none}
+
+
+.hero{
+	display:grid;
+	grid-template-columns:1fr 420px;
+	gap:2rem;
+	align-items:center;
+	max-width:var(--max-width);
+	margin:0 auto;
+	padding:48px 5% 24px;
+	text-align:left;
+}
+
+.hero p{color:var(--muted);font-size:1.05rem;max-width:760px;margin:0 auto}
+.hero-subdesc{color:var(--muted);margin:8px 0 0;max-width:720px}
+
+/* Carousel container */ 
+.carousel{max-width:var(--max-width);margin:1.2rem auto 2rem;padding:0 5%;position:relative}
+#bgEffect{height:120vh;pointer-events:none}
+
+/* Slides layout (row of cards centered) */
+.slides{display:flex;align-items:flex-start;gap:28px;will-change:transform}
+.slide{flex:0 0 auto;border-radius:16px;background:var(--card);overflow:hidden;position:relative}
+
+/* Image area */
+.slide img{display:block;width:100%;height:280px;object-fit:cover}
+
+/* Project overlay similar to Portfolio */
+.project-overlay{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);opacity:0;transition:opacity var(--transition)}
+.slide .project-info{transform:translateY(12px);transition:transform var(--transition)}
+.slide:hover .project-overlay,.slide.floating .project-overlay{opacity:1}
+.slide:hover .project-info,.slide.floating .project-info{transform:translateY(0)}
+.project-info h3{margin:0;font-size:1.05rem}
+.project-info span{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+
+/* CTA circle */
+.project-link{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--transition),transform .25s}
+.slide:hover .project-link,.slide.floating .project-link{opacity:1;transform:translate(-50%,-50%) scale(1.03)}
+
+/* Floating / lifted card */
+.slide.floating{transform:translateY(-28px) rotate(-1.6deg) scale(1.03);box-shadow:0 30px 60px rgba(0,0,0,0.6);z-index:4}
+
+/* Controls / dots */
+.controls{display:flex;justify-content:center;margin-top:18px}
+.dot{width:12px;height:12px;border-radius:999px;background:#333;border:0;margin:0 6px;cursor:pointer}
+.dot.active{background:var(--accent)}
+
+/* Responsive */
+@media (max-width:900px){
+	.hero{padding-top:80px}
+	.slides{gap:18px}
+}
+@media (max-width:720px){
+	.hero{padding-top:64px}
+	.slide img{height:240px}
+	.project-link{width:48px;height:48px}
+}
+
+/* Utilities */
+.hidden{display:none!important}
+
+/* tighten spacing for portfolio section (closer to View Work) */
+.portfolio-section{margin-top:0.6rem;padding-top:0.6rem}
+
+/* Back arrow */
+.back-arrow{
+	position:fixed;
+	top:110px; /* ilalagay sa ilalim ng navbar */
+	left:20px;
+	display:flex;
+	align-items:center;
+	gap:6px;
+	padding:10px 12px;
+	border-radius:12px;
+	background:rgba(255,255,255,0.08);
+	color:#fff;
+	text-decoration:none;
+	backdrop-filter: blur(10px);
+	transition:0.2s;
+	z-index:1000;
+}
+
+.back-arrow:hover{
+	background:var(--accent);
+	transform:translateX(-2px);
+}
+
+.back-arrow svg{
+	width:18px;
+	height:18px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#portfolio {
+  scroll-margin-top: 80px;
+}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px;
+}
+
+.project-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+}
+.project-card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Make thumbnails clearly interactive */
+.project-image{cursor:pointer;display:block;width:100%;height:auto}
+.project-image:focus{outline:3px solid rgba(255,255,255,0.12);outline-offset:4px;border-radius:8px}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+/* Hero two-column like index */
+
+.hero-content h6{margin:8px 0;color:var(--muted);font-weight:600}
+.hero-btns{display:flex;gap:12px}
+
+/* Side CTA */
+.hero-actions{position:relative}
+.hero .hero-actions{position:static}
+.side-cta{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:700}
+
+@media(max-width:900px){
+	.hero{grid-template-columns:1fr;}
+	.hero .hero-image-box{order:2}
+	.hero .hero-actions{display:none}
+}
+
+/* Lightbox (image zoom) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.hidden{
+  display:none;
+}
+
+/* Ensure the lightbox image indicates zoom state; when zoomed the JS will set cursor to zoom-out */
+#lightboxImg{
+	max-width:90vw;
+	max-height:90vh;
+	object-fit:contain;
+	transform:scale(1);
+	transition:transform 0.15s ease;
+	cursor:zoom-in;
+	outline: none;
+}
+
+.lightbox-close{
+	position:absolute;
+	top:20px;
+	right:25px;
+	font-size:28px;
+	color:#fff;
+	background: rgba(0,0,0,0.45);
+	padding:8px 10px;
+	border-radius:8px;
+	box-shadow:0 6px 20px rgba(0,0,0,0.6);
+	cursor:pointer;
+	z-index:10001;
+}
+#lightboxImg {
+  transition: transform 0.15s ease;
+  transform-origin: center;
+}
+#lightboxImg {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+
+  transform: scale(1);
+  transform-origin: center center;
+
+  transition: transform 0.1s ease;
+  will-change: transform;
+  cursor: grab;
+}

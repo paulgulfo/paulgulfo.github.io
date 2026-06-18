@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Web Design - Design Studio</title>
+  <title>Clothing Branding - Design Studio</title>
 
   <link rel="icon" type="image/png" href="1.png">
 
   <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="all webdesign.css">
+  <link rel="stylesheet" href="all branding.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <style>
@@ -118,11 +118,6 @@
       z-index: 10000;
       line-height: 1;
     }
-
-    /* Project link button */
-    .project-link{display:inline-block}
-    .project-link button{background:#0ea5e9;border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
-    .project-link button:hover{opacity:0.95}
   </style>
 </head>
 <body>
@@ -138,16 +133,16 @@
   
   <section class="hero">
     <div class="hero-content">
-      <h1>Web Design</h1>
-      <h6>Corporate Websites</h6>
-      <p class="hero-subdesc">A curated corporate web design identity series focused on modern digital solutions, clean 
-        UI systems, and professional brand experiences for technology and business companies.</p>
+      <h1>Product Design</h1>
+      <h6>Marketing Design</h6>
+      <p class="hero-subdesc">Creation of visually compelling promotional materials such as social media posts, advertisements, banners, and 
+        campaign visuals designed to attract attention, strengthen brand identity, and increase audience engagement.</p>
       <div class="hero-btns" style="margin-top:18px">
         <a href="#portfolio" class="btn-primary">View Work</a>
       </div>
     </div>
     <div class="hero-image-box">
-      <img src="8.png" alt="Branding showcase">
+      <img src="1product.png" alt="Product Design showcase">
     </div>
   </section>
 
@@ -162,23 +157,13 @@
       <div class="tshirt-container" tabindex="0">
         <div class="tshirt-track">
           <div class="project-card">
-            <img src="8.jpg" class="project-image" alt="Streetwear Collection" tabindex="0" role="button" aria-label="Open Streetwear Collection">
+            <img src="1product.png" class="project-image" alt="Streetwear Collection" tabindex="0" role="button" aria-label="Open Streetwear Collection">
             <div class="project-overlay">
-              <div class="project-info"><h3>Corporate Website</h3><span>Web Design</span></div>
+              <div class="project-info"><h3>Clothing Line</h3><span>Branding</span></div>
             </div>
-            <div style="margin-top:8px;text-align:center">
-              <div class="social-links">
-                <a class="project-link" href="https://paulgulfo.my.canva.site/nexatech-solutions/" rel="noopener" onclick="event.stopPropagation(); window.open(this.href,'_blank'); return false;">
-                  <button type="button">View Nexatech Solutions</button>
-                </a>
+           </div>
           </div>
         </div>
-       </div>
-      </div>
-     </div>
-              
-         
-
       
       <button class="tshirt-btn tshirt-next" aria-label="Next">&#8250;</button>
     </div>
@@ -280,14 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
     thumb.addEventListener('click', (e) => {
       e.stopPropagation();
       openLightbox(thumb.src);
-    });
-  });
-
-  // Prevent project-link clicks from triggering the project-card click (so anchor opens immediately)
-  document.querySelectorAll('.project-link').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.stopPropagation();
-      // allow default navigation (no preventDefault)
     });
   });
 
