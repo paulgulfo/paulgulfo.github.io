@@ -208,10 +208,13 @@
          ========================================= -->
     <nav class="navbar">
         <a href="index.html" class="logo">Design<span>Studio</span></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
         <ul class="nav-links" aria-hidden="true">
             <li class="mobile-branding">
                 <a href="index.html" class="logo"><span></a>
-                <button class="panel-close" id="panelClose" aria-label="Close menu">☰</button>
+                <button class="panel-close" id="panelClose" aria-label="Close menu"></button>
             </li>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -334,6 +337,7 @@
     <!-- Audio Control Button -->
     <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
 
+    <script src="about.js"></script>
     <script>
         // Background Audio Control - Persistent across pages
         const backgroundAudio = document.getElementById('backgroundAudio');
