@@ -46,46 +46,44 @@
     }
 
     function toggleSidebarState() {
-      if (!navLinks) return;
       const opened = navLinks.classList.toggle('open');
-      if (navToggle) navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
       if (panelClose) panelClose.style.display = opened ? 'block' : 'none';
-      document.body.style.overflow = opened ? 'hidden' : '';
     }
 
-    if (navToggle) {
-      navToggle.addEventListener('click', toggleSidebarState);
-      navToggle.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleSidebarState();
-        }
-      });
-    }
-
-    if (panelClose) panelClose.addEventListener('click', function (e) {
-      if (navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-        panelClose.style.display = 'none';
-        setSideState(false);
-      }
+    // nav toggle (hamburger in header)
+    navToggle.addEventListener('click', () => {
+      toggleSidebarState();
     });
 
-    navLinkItems.forEach(function (link) {
-      link.addEventListener('click', function () {
+    if (panelClose) {
+      // close panel when internal close button is clicked
+      panelClose.addEventListener('click', (e) => {
         if (navLinks.classList.contains('open')) {
           navLinks.classList.remove('open');
-          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-expanded', 'false');
+          panelClose.style.display = 'none';
+        }
+      });
+      // initialize visual state
+      panelClose.style.display = navLinks.classList.contains('open') ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
           setSideState(false);
         }
       });
     });
 
-    document.addEventListener('keydown', function (e) {
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
-        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-expanded', 'false');
         setSideState(false);
       }
     });
