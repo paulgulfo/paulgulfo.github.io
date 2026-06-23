@@ -159,16 +159,54 @@
 		const navToggle = document.querySelector('.nav-toggle');
 		const navLinks = document.querySelector('.nav-links');
 		if (navToggle && navLinks) {
-			navToggle.addEventListener('click', () => {
+			const sideToggle = document.getElementById('sideToggle');
+			let lastTap = 0;
+
+			function setSideState(opened) {
+				if (!sideToggle) return;
+				sideToggle.classList.toggle('open', opened);
+				sideToggle.setAttribute('data-open', opened ? 'true' : 'false');
+				sideToggle.setAttribute('aria-pressed', opened ? 'true' : 'false');
+			}
+
+			function toggleSidebarState() {
 				const opened = navLinks.classList.toggle('open');
 				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+				setSideState(opened);
+			}
+
+			// nav toggle (hamburger in header)
+			navToggle.addEventListener('click', () => {
+				toggleSidebarState();
 			});
+
+			// side toggle requires double-tap / dblclick
+			if (sideToggle) {
+				sideToggle.addEventListener('dblclick', (e) => {
+					e.preventDefault();
+					toggleSidebarState();
+				});
+
+				// touch double-tap detection
+				sideToggle.addEventListener('touchend', (e) => {
+					const now = Date.now();
+					if (now - lastTap < 300) {
+						e.preventDefault();
+						toggleSidebarState();
+					}
+					lastTap = now;
+				});
+
+				// initialize visual state
+				setSideState(navLinks.classList.contains('open'));
+			}
 
 			document.querySelectorAll('.nav-links a').forEach(a => {
 				a.addEventListener('click', () => {
 					if (navLinks.classList.contains('open')) {
 						navLinks.classList.remove('open');
 						navToggle.setAttribute('aria-expanded', 'false');
+						setSideState(false);
 					}
 				});
 			});
@@ -178,6 +216,7 @@
 				if (e.key === 'Escape' && navLinks.classList.contains('open')) {
 					navLinks.classList.remove('open');
 					navToggle.setAttribute('aria-expanded', 'false');
+					setSideState(false);
 				}
 			});
 		}
