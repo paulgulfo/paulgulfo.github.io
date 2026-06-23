@@ -23,20 +23,23 @@
          1. NAVIGATION
          ========================================= -->
     <nav class="navbar">
-        <a href="index.html" class="logo">Design<span>Studio</span></a>
-        <ul class="nav-links" aria-hidden="true">
-            <li class="mobile-branding">
-                <a href="index.html" class="logo"><span></a>
-                <button class="panel-close" id="panelClose" aria-label="Close menu">☰</button>
-            </li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="Portfolio.html">Portfolio</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <a href="contact.html" class="btn-primary">Let's Talk</a>
+      <a href="index.html" class="logo">Design<span>Studio</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links" aria-hidden="true">
+        <li class="mobile-branding">
+          <a href="index.html" class="logo"><span></a>
+          <button class="panel-close" id="panelClose" aria-label="Close menu"></button>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Let's Talk</a>
     </nav>
 
     <!-- =========================================
@@ -224,6 +227,7 @@
 
     <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
 
+    <script src="Projects.js"></script>
     <script>
         // Background Audio Control - Persistent across pages
         const backgroundAudio = document.getElementById('backgroundAudio');
