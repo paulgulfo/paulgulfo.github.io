@@ -24,23 +24,47 @@ document.addEventListener('DOMContentLoaded', () => {
     if (panelClose) panelClose.style.display = 'none';
   }
 
+  function toggleSidebarState() {
+    const opened = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    if (panelClose) panelClose.style.display = opened ? 'block' : 'none';
+    document.body.style.overflow = opened ? 'hidden' : '';
+  }
+
+  // nav toggle (hamburger in header)
   navToggle.addEventListener('click', () => {
-    if (navLinks.classList.contains('open')) closePanel(); else openPanel();
+    toggleSidebarState();
   });
 
+  function closeSidebar() {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      if (panelClose) panelClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
   if (panelClose) {
-    panelClose.addEventListener('click', closePanel);
+    // close panel when internal close button is clicked
+    panelClose.addEventListener('click', (e) => {
+      closeSidebar();
+    });
+    // initialize visual state
     panelClose.style.display = navLinks.classList.contains('open') ? 'block' : 'none';
   }
 
-  // Close when a link is clicked (mobile)
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    if (navLinks.classList.contains('open')) closePanel();
-  }));
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      closeSidebar();
+    });
+  });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navLinks.classList.contains('open')) closePanel();
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeSidebar();
+    }
   });
 
   // Ensure initial aria state
