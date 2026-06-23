@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Business Card Design - Design Studio</title>
+
+  <link rel="icon" type="image/png" href="1.png">
+
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="all branding.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* T-shirt Slider Styles */
+    .tshirt-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .tshirt-container {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+
+    .tshirt-container::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .tshirt-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      padding: 10px 5px;
+    }
+
+    .project-card {
+      flex: 0 0 auto;
+      width: 280px;
+    }
+
+    .tshirt-btn {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .tshirt-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .tshirt-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .tshirt-prev { margin-right: 5px; }
+    .tshirt-next { margin-left: 5px; }
+
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 10000;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <a href="Portfolio.html" class="back-arrow" id="backArrow" title="Back to portfolio">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Design<span>Studio</span></a>
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
+  </nav>
+
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Brand Identity</h1>
+      <h6>Business Card Design</h6>
+      <p class="hero-subdesc">Bringing client visions to life through clean design and smart systems.</p>
+      <div class="hero-btns" style="margin-top:18px">
+        <a href="#portfolio" class="btn-primary">View Work</a>
+      </div>
+    </div>
+    <div class="hero-image-box">
+      <img src="1businesscard.png" alt="Branding showcase">
+    </div>
+  </section>
+
+<section id="portfolio" class="portfolio-section">
+  <h2 class="section-title">Selected Works</h2>
+
+  <div class="portfolio-grid">
+    <!-- T-shirt group: horizontal container with prev/next controls -->
+    <div class="tshirt-wrapper">
+      <button class="tshirt-btn tshirt-prev" aria-label="Previous">&#8249;</button>
+      
+      <div class="tshirt-container" tabindex="0">
+        <div class="tshirt-track">
+          <div class="project-card">
+            <img src="1businesscard.png" class="project-image" alt="Business Card Design" tabindex="0" role="button" aria-label="Open Business Card Design">
+            <div class="project-overlay">
+              <div class="project-info"><h3>Business Card Design</h3><span>Marketing Design</span></div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="2businesscard.png" alt="Corporate Identity" class="project-image" tabindex="0" role="button" aria-label="Open Corporate Identity">
+            <div class="project-overlay"><div class="project-info"><h3>Business Card Design</h3><span>Marketing Design</span></div></div>
+          
+          </div>
+        </div>
+      </div>
+      
+      <button class="tshirt-btn tshirt-next" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+  <div style="text-align:center;margin-top:2rem"><a href="contact.html" class="btn-primary">Get a Quote</a></div>
+
+  <footer style="text-align:center;padding:40px 5%;color:var(--muted)">&copy; 2026 Paul Gulfo. All rights reserved.</footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
+    <img id="lightboxImg" src="" alt="Zoomed image">
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // =====================
+  // T-SHIRT SLIDER CODE
+  // =====================
+  const tshirtContainer = document.querySelector('.tshirt-container');
+  const tshirtPrev = document.querySelector('.tshirt-prev');
+  const tshirtNext = document.querySelector('.tshirt-next');
+
+  if (tshirtContainer && tshirtPrev && tshirtNext) {
+    // Calculate scroll amount based on card width + gap
+    function getScrollAmount() {
+      const card = tshirtContainer.querySelector('.project-card');
+      if (!card) return 300;
+      const cardWidth = card.offsetWidth;
+      const gap = 20; // gap from CSS
+      return cardWidth + gap;
+    }
+
+    // Update button disabled state
+    function updateButtons() {
+      const { scrollLeft, scrollWidth, clientWidth } = tshirtContainer;
+      const maxScroll = scrollWidth - clientWidth;
+      
+      tshirtPrev.disabled = scrollLeft <= 0;
+      tshirtNext.disabled = scrollLeft >= maxScroll - 1;
+    }
+
+    // Scroll prev
+    tshirtPrev.addEventListener('click', () => {
+      tshirtContainer.scrollBy({
+        left: -getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    // Scroll next
+    tshirtNext.addEventListener('click', () => {
+      tshirtContainer.scrollBy({
+        left: getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    // Update buttons on scroll
+    tshirtContainer.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    
+    // Initial check
+    setTimeout(updateButtons, 100);
+  }
+
+
+  // =====================
+  // LIGHTBOX CODE
+  // =====================
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+
+  let scale = 1;
+
+  function openLightbox(src) {
+    lightbox.classList.remove("hidden");
+    img.src = src;
+    scale = 1;
+    img.style.transform = "scale(1)";
+    img.style.cursor = 'zoom-out';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+    img.src = "";
+    scale = 1;
+  }
+
+  // Open lightbox on card/image click
+  document.querySelectorAll('.project-card').forEach((card) => {
+    const thumb = card.querySelector('.project-image');
+    if (!thumb) return;
+    card.addEventListener('click', () => openLightbox(thumb.src));
+    thumb.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(thumb.src);
+    });
+  });
+
+  // Close
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  // Scroll to zoom
+  lightbox.addEventListener("wheel", (e) => {
+    if (lightbox.classList.contains("hidden")) return;
+    e.preventDefault();
+    const zoomSpeed = 0.15;
+    scale += e.deltaY < 0 ? zoomSpeed : -zoomSpeed;
+    scale = Math.max(1, Math.min(6, scale));
+    img.style.transform = `scale(${scale})`;
+  }, { passive: false });
+
+  // Click to toggle zoom
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    scale = scale === 1 ? 2 : 1;
+    img.style.transform = `scale(${scale})`;
+    img.style.cursor = scale > 1 ? 'zoom-out' : 'zoom-in';
+  });
+
+});
+</script>
+</body>
+</html>
