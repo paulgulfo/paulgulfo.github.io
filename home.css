@@ -95,6 +95,35 @@ img {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
 }
+/* Mobile nav toggle button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-toggle .hamburger {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+  position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+}
+.nav-toggle .hamburger::before { top: -7px; }
+.nav-toggle .hamburger::after { top: 7px; }
 html {
   scroll-behavior: smooth;
 }
@@ -324,10 +353,42 @@ footer {
   .hero h1 {
     font-size: 3rem;
   }
-  
+  /* Show nav toggle and hide desktop nav by default */
+  .nav-toggle { display: flex; }
+
   .nav-links {
-    display: none; /* In a real scenario, add a hamburger menu here */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 320px;
+    background: linear-gradient(180deg, #0f0f0f, #121212);
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 5rem 1.5rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.32s ease;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.5);
+    display: flex;
+    z-index: 1100;
   }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 0.9rem 0.5rem;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  /* Push main content down a bit so nav toggle is visible */
+  .hero, .services, .portfolio-section { padding-top: 6.5rem; }
   
   .portfolio-grid {
     grid-template-columns: 1fr;

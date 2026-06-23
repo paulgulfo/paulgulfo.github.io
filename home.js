@@ -154,6 +154,33 @@
 
 		initHeroParallax();
 		initObservers();
+
+		// Mobile navigation toggle
+		const navToggle = document.querySelector('.nav-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		if (navToggle && navLinks) {
+			navToggle.addEventListener('click', () => {
+				const opened = navLinks.classList.toggle('open');
+				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+			});
+
+			document.querySelectorAll('.nav-links a').forEach(a => {
+				a.addEventListener('click', () => {
+					if (navLinks.classList.contains('open')) {
+						navLinks.classList.remove('open');
+						navToggle.setAttribute('aria-expanded', 'false');
+					}
+				});
+			});
+
+			// Close on Escape
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+					navLinks.classList.remove('open');
+					navToggle.setAttribute('aria-expanded', 'false');
+				}
+			});
+		}
 	});
 
 })();
