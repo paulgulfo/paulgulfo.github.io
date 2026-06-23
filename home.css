@@ -76,6 +76,9 @@ img {
   font-weight: 500;
   color: var(--text-muted);
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .nav-links a:hover {
@@ -386,6 +389,18 @@ footer {
     color: var(--text-main);
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
+
+  .nav-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    flex: 0 0 18px;
+  }
+
+  .nav-links.open .nav-icon { color: var(--text-main); }
 
   .mobile-branding {
     margin-bottom: 1.5rem;
