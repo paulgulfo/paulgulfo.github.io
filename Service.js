@@ -1,28 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  const panelClose = document.getElementById('panelClose');
-
-  if (!navToggle || !navLinks) return;
-
-  function setAria(open) {
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    navLinks.setAttribute('aria-hidden', open ? 'false' : 'true');
-  }
-
-  function openPanel() {
-    navLinks.classList.add('open');
-    setAria(true);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePanel() {
-    navLinks.classList.remove('open');
-    setAria(false);
-    document.body.style.overflow = '';
-  }
-
-  (function () {
+(function () {
     'use strict';
 
     class Carousel {
