@@ -408,34 +408,19 @@ footer {
     height: 300px; /* ensure consistent height on small screens */
   }
 
-  /* Left-side floating toggle visible on mobile only */
-  .side-toggle {
-    display: flex;
-    position: fixed;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    z-index: 1300;
-    box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+  /* Internal panel close button */
+  .mobile-branding { position: relative; display: flex; align-items: center; justify-content: space-between; }
+
+  .panel-close {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    background: transparent;
     border: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .side-toggle .icon-close { display: none; }
-  .side-toggle.open { background: #111; }
-  .side-toggle.open .icon-open { display: none; }
-  .side-toggle.open .icon-close { display: block; }
-
-  /* hide desktop fallback (keep visible only on mobile) */
-  @media (min-width: 769px) {
-    .side-toggle { display: none; }
+    color: var(--text-main);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 6px 8px;
   }
   
   .portfolio-grid {

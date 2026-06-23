@@ -159,20 +159,12 @@
 		const navToggle = document.querySelector('.nav-toggle');
 		const navLinks = document.querySelector('.nav-links');
 		if (navToggle && navLinks) {
-			const sideToggle = document.getElementById('sideToggle');
-			let lastTap = 0;
-
-			function setSideState(opened) {
-				if (!sideToggle) return;
-				sideToggle.classList.toggle('open', opened);
-				sideToggle.setAttribute('data-open', opened ? 'true' : 'false');
-				sideToggle.setAttribute('aria-pressed', opened ? 'true' : 'false');
-			}
+			const panelClose = document.getElementById('panelClose');
 
 			function toggleSidebarState() {
 				const opened = navLinks.classList.toggle('open');
 				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
-				setSideState(opened);
+				if (panelClose) panelClose.style.display = opened ? 'block' : 'none';
 			}
 
 			// nav toggle (hamburger in header)
@@ -180,25 +172,17 @@
 				toggleSidebarState();
 			});
 
-			// side toggle requires double-tap / dblclick
-			if (sideToggle) {
-				sideToggle.addEventListener('dblclick', (e) => {
-					e.preventDefault();
-					toggleSidebarState();
-				});
-
-				// touch double-tap detection
-				sideToggle.addEventListener('touchend', (e) => {
-					const now = Date.now();
-					if (now - lastTap < 300) {
-						e.preventDefault();
-						toggleSidebarState();
+			if (panelClose) {
+				// close panel when internal close button is clicked
+				panelClose.addEventListener('click', (e) => {
+					if (navLinks.classList.contains('open')) {
+						navLinks.classList.remove('open');
+						navToggle.setAttribute('aria-expanded', 'false');
+						panelClose.style.display = 'none';
 					}
-					lastTap = now;
 				});
-
 				// initialize visual state
-				setSideState(navLinks.classList.contains('open'));
+				panelClose.style.display = navLinks.classList.contains('open') ? 'block' : 'none';
 			}
 
 			document.querySelectorAll('.nav-links a').forEach(a => {
