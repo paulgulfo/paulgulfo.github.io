@@ -359,7 +359,7 @@ footer {
   .nav-links {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100vh;
     width: 80%;
     max-width: 320px;
@@ -367,9 +367,9 @@ footer {
     flex-direction: column;
     gap: 1.25rem;
     padding: 5rem 1.5rem 1.5rem;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     transition: transform 0.32s ease;
-    box-shadow: -8px 0 24px rgba(0,0,0,0.5);
+    box-shadow: 8px 0 24px rgba(0,0,0,0.5);
     display: flex;
     z-index: 1100;
   }
@@ -387,8 +387,26 @@ footer {
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
 
+  .mobile-branding {
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-branding .logo {
+    font-size: 1.25rem;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+  }
+
   /* Push main content down a bit so nav toggle is visible */
   .hero, .services, .portfolio-section { padding-top: 6.5rem; }
+
+  /* Center hero image box on mobile */
+  .hero-image-box {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    height: 300px; /* ensure consistent height on small screens */
+  }
   
   .portfolio-grid {
     grid-template-columns: 1fr;
