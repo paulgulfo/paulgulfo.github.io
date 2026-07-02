@@ -16,7 +16,7 @@
 @media (max-width:640px){
 
     .chat-widget-shell{
-        left:50%;
+        left:100%;
         right:auto;
         bottom:15px;
         transform:translateX(-50%);
