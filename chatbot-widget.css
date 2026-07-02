@@ -9,6 +9,71 @@
     align-items: flex-end;
     gap: 16px;
 }
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width:640px){
+
+    .chat-widget-shell{
+        left:50%;
+        right:auto;
+        bottom:15px;
+        transform:translateX(-50%);
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .chat-widget-panel{
+        width:95%;
+        max-width:390px;
+        height:75vh;
+        max-height:75vh;
+
+        border-radius:20px;
+
+        box-shadow:
+        0 12px 35px rgba(0,0,0,.18);
+
+        margin:auto;
+    }
+
+    .chat-widget-body{
+        padding:14px;
+        gap:12px;
+    }
+
+    .chat-widget-message{
+        max-width:85%;
+        padding:12px 15px;
+        font-size:14px;
+        line-height:1.6;
+    }
+
+    .chat-widget-message.user{
+        margin-left:auto;
+    }
+
+    .chat-widget-message.ai{
+        margin-right:auto;
+    }
+
+    .chat-widget-form{
+        padding:12px;
+    }
+
+    .chat-widget-input{
+        font-size:15px;
+    }
+
+    .chat-widget-toggle{
+        width:58px;
+        height:58px;
+    }
+
+}
 @media (max-width:480px){
 
     .chat-widget-shell{
