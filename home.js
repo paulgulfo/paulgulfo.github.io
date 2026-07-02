@@ -213,6 +213,15 @@ if (navToggle && navLinks) {
             closeMenu();
         }
     });
+	const navToggle=document.querySelector(".nav-toggle");
+
+console.log(navToggle);
+
+navToggle.addEventListener("click",()=>{
+
+    console.log("MENU CLICKED");
+
+});
 
 } // <-- end if
 

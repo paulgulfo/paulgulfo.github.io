@@ -99,7 +99,14 @@ body {
     font-weight: 600;
     transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
 }
+.chat-widget-shell{
+    pointer-events:none;
+}
 
+.chat-widget-panel,
+.chat-widget-toggle{
+    pointer-events:auto;
+}
 .nav-link {
     padding: 0.9rem 1.2rem;
     color: var(--text);
