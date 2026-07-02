@@ -221,10 +221,27 @@ Your goal is to provide an experience similar to a modern AI assistant while rep
 app.get('/health', (_req, res) => {
     res.json({ status: 'ok' });
 });
+// Health Check
+app.get('/health', (_req, res) => {
+    res.json({ status: 'ok' });
+});
 
+// Root Route
+app.get('/', (req, res) => {
+    res.json({
+        status: "online",
+        assistant: "Paul Assistant",
+        message: "Paul Assistant API is running successfully.",
+        chatEndpoint: "/chat"
+    });
+});
+
+// Start Server
 app.listen(port, () => {
-    console.log(`AI chatbot server running on http://localhost:${port}`);
+    console.log(`🚀 Paul Assistant is running on port ${port}`);
+
     if (!isApiConfigured) {
-        console.log('OpenAI API key not configured. The chatbot is using built-in replies for now.');
+        console.log("⚠️ OPENAI_API_KEY is not configured.");
     }
 });
+const API_URL = "https://paul-assistant.up.railway.app/chat";
