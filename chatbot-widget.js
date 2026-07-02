@@ -110,7 +110,7 @@ async function sendWidgetMessage(message) {
     setWidgetTyping(true);
 
     try {
-const API_URL = "https://graphicdesign.up.railway.app/";
+const API_URL = "https://graphicdesign.up.railway.app/chat";
 
 const response = await fetch(API_URL, {
                 method: 'POST',

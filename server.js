@@ -236,6 +236,17 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get("/", (req, res) => {
+    res.send("✅ Paul Assistant API is running.");
+});
+
+app.get("/chat", (req, res) => {
+    res.json({
+        status: "Paul Assistant API is running.",
+        method: "Use POST /chat to send messages."
+    });
+});
+app.post("/chat", async (req, res) => {});
 // Start Server
 app.listen(port, () => {
     console.log(`🚀 Paul Assistant is running on port ${port}`);
