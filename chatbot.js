@@ -25,6 +25,23 @@ function saveHistory(history) {
 }
 
 function getHistory() {
+    const toggle=document.getElementById("chatToggle");
+
+const panel=document.querySelector(".chat-panel");
+
+toggle.addEventListener("click",()=>{
+
+    if(panel.style.display==="block"){
+
+        panel.style.display="none";
+
+    }else{
+
+        panel.style.display="block";
+
+    }
+
+});
     const history = localStorage.getItem(STORAGE_KEY);
     if (!history) return [initialWelcome];
     try {

@@ -373,8 +373,8 @@ body {
     right:25px;
     bottom:25px;
 
-    width:68px;
-    height:68px;
+    width:65px;
+    height:65px;
 
     border:none;
     border-radius:50%;
@@ -382,7 +382,8 @@ body {
     background:#ff3b5c;
 
     color:#fff;
-    font-size:30px;
+
+    font-size:28px;
 
     cursor:pointer;
 
@@ -390,18 +391,18 @@ body {
     justify-content:center;
     align-items:center;
 
-    box-shadow:0 10px 30px rgba(255,59,92,.45);
+    box-shadow:0 12px 35px rgba(255,59,92,.45);
 
     transition:.3s;
 
-    z-index:9999;
+    z-index:99999;
 }
 
 .chat-float-button:hover{
 
     transform:scale(1.08);
 
-    background:#ff214c;
+    background:#ff1c4f;
 
 }
 @keyframes slideIn {
@@ -443,15 +444,21 @@ body {
 
    .chat-panel{
 
-    display:flex;
+    position:fixed;
 
-    flex-direction:column;
+    right:25px;
 
-    height:82vh;
+    bottom:100px;
 
-    padding:0;
+    width:390px;
+
+    height:650px;
+
+    display:none;
 
     overflow:hidden;
+
+    z-index:9999;
 
 }
     .chat-float-button {
