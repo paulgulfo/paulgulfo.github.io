@@ -110,7 +110,7 @@ async function sendWidgetMessage(message) {
     setWidgetTyping(true);
 
     try {
-const API_URL = "https://graphicdesign.up.railway.app/chat";
+const API_URL = "https://graphicdesign.up.railway.app/";
 
 const response = await fetch(API_URL, {
                 method: 'POST',
@@ -163,7 +163,5 @@ widgetInput.addEventListener('keydown', event => {
     }
 });
 
-window.addEventListener('load', () => {
-    renderHistory();
-});
+renderHistory();
 });
