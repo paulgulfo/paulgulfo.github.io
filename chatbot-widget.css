@@ -9,51 +9,30 @@
     align-items: flex-end;
     gap: 16px;
 }
-/* Tablet & Mobile */
-@media (max-width:640px){
-
-    .chat-widget-shell{
-        right:15px;
-        bottom:15px;
-        gap:12px;
-    }
-
-    .chat-widget-panel{
-        width:calc(100vw - 30px);
-        max-width:380px;
-        height:75vh;
-        border-radius:20px;
-    }
-
-    .chat-widget-toggle{
-        width:58px;
-        height:58px;
-        font-size:1.2rem;
-    }
-
-}
-
-/* Small Phones */
 @media (max-width:480px){
 
     .chat-widget-shell{
-        right:0;
-        bottom:0;
-        gap:0;
+        left:50%;
+        right:auto;
+        bottom:10px;
+        transform:translateX(-50%);
     }
 
     .chat-widget-panel{
-        width:100vw;
-        height:100vh;
-        max-width:none;
-        max-height:none;
-        border-radius:0;
+        width:96%;
+        height:82vh;
+        border-radius:18px;
+
+        box-shadow:
+        0 10px 28px rgba(0,0,0,.16);
     }
 
-    .chat-widget-toggle{
-        right:20px;
-        bottom:20px;
-        position:fixed;
+    .chat-widget-header{
+        padding:16px;
+    }
+
+    .chat-widget-body{
+        padding:14px;
     }
 
 }
