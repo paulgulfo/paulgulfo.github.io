@@ -1,15 +1,14 @@
 .chat-widget-shell {
     position: fixed;
-    right: 7.5rem;
-    bottom: 1.25rem;
+    right: 24px;
+    bottom: 24px;
     z-index: 9999;
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.75rem;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    gap: 16px;
 }
-
 .chat-widget-toggle {
     width: 62px;
     height: 62px;
@@ -99,12 +98,25 @@
 }
 
 .chat-widget-message {
-    max-width: 90%;
-    padding: 0.8rem 0.9rem;
-    border-radius: 16px;
-    line-height: 1.55;
-    font-size: 0.95rem;
-    animation: widgetFadeIn 220ms ease;
+    max-width: 82%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 15px;
+    word-wrap: break-word;
+    animation: widgetFadeIn .25s ease;
+}
+.chat-widget-message.user{
+    margin-left:auto;
+    background:#ff3b5c;
+    color:#fff;
+    border-radius:18px 18px 4px 18px;
+}
+.chat-widget-message.ai{
+    margin-right:auto;
+    background:#24283b;
+    color:#fff;
+    border-radius:18px 18px 18px 4px;
 }
 
 .chat-widget-message.user {
@@ -147,7 +159,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #ff3b5c;
+    background: #b30220;
     animation: widgetBlink 1s infinite ease-in-out;
 }
 
