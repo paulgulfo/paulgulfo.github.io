@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Portfolio Chatbot for Paul Gulfo's design services">
+    <title>AI Portfolio Chatbot | Paul</title>
+    <link rel="icon" type="image/png" href="1.png">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="page-header">
+            <div class="brand-block">
+                <a href="index.html" class="brand-logo">Paul<span>Studio</span></a>
+                <p class="brand-tag">Ask me about design, branding, packaging, and more.</p>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="nav-link">Back to Portfolio</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">Light</button>
+            </div>
+        </header>
+
+        <main class="chat-layout">
+            <section class="info-panel glass-card">
+                <h1>AI Portfolio Assistant</h1>
+                <p>Get fast answers about my services, portfolio projects, and how to hire me. The assistant can recommend the right work samples based on your needs.</p>
+
+                <div class="feature-list">
+                    <div><strong>Services Covered</strong></div>
+                    <ul>
+                        <li>Logo Design</li>
+                        <li>Brand Identity</li>
+                        <li>Marketing & Advertising Design</li>
+                        <li>Product Packaging</li>
+                        <li>Social Media Design</li>
+                        <li>Print Design</li>
+                    </ul>
+                </div>
+
+                <div class="feature-list">
+                    <div><strong>Ask about</strong></div>
+                    <ul>
+                        <li>Relevant portfolio projects</li>
+                        <li>Best services for your brand</li>
+                        <li>How to hire me</li>
+                        <li>Design process and timelines</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="chat-panel glass-card" aria-label="Chat interface">
+                <div class="chat-header">
+                    <div>
+                        <p class="chat-title">Portfolio Chat</p>
+                        <p class="chat-subtitle">Type your question and I’ll answer with portfolio recommendations.</p>
+                    </div>
+                    <button class="clear-button" id="clearChat" type="button">Clear Chat</button>
+                </div>
+
+                <div class="chat-body" id="chatBody" aria-live="polite"></div>
+
+                <div class="typing-status" id="typingIndicator" aria-hidden="true">
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span>Paul is typing...</span>
+                </div>
+
+                <form class="chat-form" id="chatForm">
+                    <label for="chatInput" class="sr-only">Enter your message</label>
+                    <textarea id="chatInput" class="chat-input" rows="2" placeholder="Ask about logo design, brand identity, or portfolio projects..." autocomplete="off"></textarea>
+                    <button class="send-button" id="sendButton" type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <button class="chat-float-button" id="chatToggle" aria-label="Open chat widget">💬</button>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
