@@ -7,7 +7,6 @@
     <title>Graphic Design | Paul</title>
     
     <link rel="icon" type="image/png" href="1.png">
-    <link rel="stylesheet" href="chatbot-widget.css">
     
     <!-- Link to your global/home CSS -->
     <link rel="stylesheet" href="home.css">
@@ -405,8 +404,67 @@
         <p class="copyright">&copy; 2026 Paul gulfo. All rights reserved.</p>
     </footer>
 
-    
+    <!-- Background Audio Element -->
+    <audio id="backgroundAudio" loop>
+        <source src="1LoLorems.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
+
+    <!-- Sidebar close button (visible inside mobile panel) -->
+
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => console.log('Play failed:', err));
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+    </script>
     <script src="home.js"></script>
- <script src="chatbot-widget.js"></script>
+
 </body>
 </html>

@@ -10,7 +10,6 @@
     
     <!-- Link to your global/home CSS -->
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="chatbot-widget.css">
     
     <!-- Link to your specific project CSS -->
     <link rel="stylesheet" href="project.css">
@@ -234,6 +233,166 @@
     <button class="audio-control" id="audioControl" title="Play Background Music">🎵</button>
 
     <script src="Projects.js"></script>
- <script src="chatbot-widget.js"></script>
+    <script>
+        // Background Audio Control - Persistent across pages
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioControl = document.getElementById('audioControl');
+        
+        // Restore playback state from sessionStorage
+        let isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+        
+        // Function to update button state
+        function updateButtonState() {
+            audioControl.textContent = isPlaying ? '⏸' : '🎵';
+        }
+        
+        // Initialize button state
+        updateButtonState();
+        
+        // Auto-play audio on page load (with user interaction requirement)
+        window.addEventListener('load', () => {
+            if (isPlaying) {
+                backgroundAudio.play().catch(err => {
+                    console.log('Autoplay prevented:', err);
+                    isPlaying = false;
+                    updateButtonState();
+                });
+            }
+        });
+        
+        // Play audio on button click
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(err => {
+                    console.log('Play failed:', err);
+                    isPlaying = false;
+                    updateButtonState();
+                });
+                isPlaying = true;
+            }
+            sessionStorage.setItem('audioPlaying', isPlaying);
+            updateButtonState();
+        });
+        
+        // Track audio play/pause events
+        backgroundAudio.addEventListener('play', () => {
+            isPlaying = true;
+            sessionStorage.setItem('audioPlaying', 'true');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+        
+        backgroundAudio.addEventListener('ended', () => {
+            isPlaying = false;
+            sessionStorage.setItem('audioPlaying', 'false');
+            updateButtonState();
+        });
+
+const slider = document.getElementById('slider');
+const items = document.querySelectorAll('.gallery-item');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const dotsContainer = document.getElementById('dots');
+
+let index = 0;
+
+/* DOTS */
+items.forEach((_, i) => {
+  const dot = document.createElement('span');
+  if(i === 0) dot.classList.add('active');
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dots span');
+
+function updateSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function goToSlide(i) {
+  index = i;
+  updateSlider();
+}
+
+/* BUTTONS */
+next.onclick = () => {
+  index = (index + 1) % items.length;
+  updateSlider();
+};
+
+prev.onclick = () => {
+  index = (index - 1 + items.length) % items.length;
+  updateSlider();
+};
+
+/* LIGHTBOX */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+const lbPrev = document.querySelector('.lb-prev');
+const lbNext = document.querySelector('.lb-next');
+
+items.forEach((item, i) => {
+  item.onclick = () => {
+    index = i;
+    showLightbox();
+  };
+});
+
+function showLightbox() {
+  lightbox.classList.add('active');
+  updateLightbox();
+}
+
+function updateLightbox() {
+  lightboxImg.src = items[index].querySelector('img').src;
+}
+
+/* LIGHTBOX NAV */
+lbNext.onclick = () => {
+  index = (index + 1) % items.length;
+  updateLightbox();
+};
+
+lbPrev.onclick = () => {
+  index = (index - 1 + items.length) % items.length;
+  updateLightbox();
+};
+
+/* CLOSE */
+closeBtn.onclick = () => lightbox.classList.remove('active');
+lightbox.onclick = (e) => {
+  if(e.target === lightbox) lightbox.classList.remove('active');
+};
+
+/* SWIPE */
+let startX = 0;
+slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) next.onclick();
+  if(endX - startX > 50) prev.onclick();
+});
+
+/* KEYBOARD */
+document.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('active')) return;
+  if(e.key === 'ArrowRight') lbNext.onclick();
+  if(e.key === 'ArrowLeft') lbPrev.onclick();
+  if(e.key === 'Escape') lightbox.classList.remove('active');
+});
+</script>
+
 </body>
 </html>
