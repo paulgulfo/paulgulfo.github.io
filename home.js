@@ -155,18 +155,76 @@
 		initHeroParallax();
 		initObservers();
 
-		// Mobile navigation toggle
-		const navToggle = document.querySelector('.nav-toggle');
-		const navLinks = document.querySelector('.nav-links');
-		if (navToggle && navLinks) {
-			const panelClose = document.getElementById('panelClose');
+// =========================
+// Mobile Navigation Toggle
+// =========================
 
-			function toggleSidebarState() {
-				const opened = navLinks.classList.toggle('open');
-				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
-				if (panelClose) panelClose.style.display = opened ? 'block' : 'none';
-			}
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+const panelClose = document.getElementById("panelClose");
 
+if (navToggle && navLinks) {
+
+    function openMenu() {
+        navLinks.classList.add("open");
+        navToggle.setAttribute("aria-expanded", "true");
+        navLinks.setAttribute("aria-hidden", "false");
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navLinks.setAttribute("aria-hidden", "true");
+    }
+
+    // Hamburger Button
+    navToggle.addEventListener("click", () => {
+
+        if (navLinks.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+
+    });
+
+    // Close Button
+    if(panelClose){
+
+        panelClose.addEventListener("click", closeMenu);
+
+    }
+
+    // Close kapag pinindot ang link
+    document.querySelectorAll(".nav-links a").forEach(link=>{
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
+    // Close kapag Escape
+    document.addEventListener("keydown",(e)=>{
+
+        if(e.key==="Escape"){
+
+            closeMenu();
+
+        }
+
+    });
+
+    // Close kapag nag-click sa labas
+    document.addEventListener("click",(e)=>{
+
+        if(
+            navLinks.classList.contains("open") &&
+            !navLinks.contains(e.target) &&
+            !navToggle.contains(e.target)
+        ){
+            closeMenu();
+        }
+
+    });
 			// nav toggle (hamburger in header)
 			navToggle.addEventListener('click', () => {
 				toggleSidebarState();
