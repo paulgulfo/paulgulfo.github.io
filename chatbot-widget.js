@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const widgetShell = document.createElement('div');
 widgetShell.className = 'chat-widget-shell';
 widgetShell.innerHTML = `
@@ -109,8 +110,10 @@ async function sendWidgetMessage(message) {
     setWidgetTyping(true);
 
     try {
-        const response = await fetch('/chat', {
-            method: 'POST',
+const API_URL = "https://graphicdesign.up.railway.app/chat";
+
+const response = await fetch(API_URL, {
+                method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: text }),
         });
@@ -162,4 +165,5 @@ widgetInput.addEventListener('keydown', event => {
 
 window.addEventListener('load', () => {
     renderHistory();
+});
 });
