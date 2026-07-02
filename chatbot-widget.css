@@ -16,15 +16,19 @@
 @media (max-width:640px){
 
     .chat-widget-shell{
-        left:100%;
+        left:15px;
         right:auto;
         bottom:15px;
-        transform:translateX(-50%);
-        width:100%;
+
+        width:auto;
         display:flex;
-        justify-content:center;
-        align-items:center;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-end;
+
+        transform:none;
     }
+
 
     .chat-widget-panel{
         width:95%;
@@ -71,33 +75,6 @@
     .chat-widget-toggle{
         width:58px;
         height:58px;
-    }
-
-}
-@media (max-width:480px){
-
-    .chat-widget-shell{
-        left:50%;
-        right:auto;
-        bottom:10px;
-        transform:translateX(-50%);
-    }
-
-    .chat-widget-panel{
-        width:96%;
-        height:82vh;
-        border-radius:18px;
-
-        box-shadow:
-        0 10px 28px rgba(0,0,0,.16);
-    }
-
-    .chat-widget-header{
-        padding:16px;
-    }
-
-    .chat-widget-body{
-        padding:14px;
     }
 
 }
