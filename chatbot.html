@@ -8,6 +8,36 @@
     <link rel="icon" type="image/png" href="1.png">
     <link rel="stylesheet" href="chatbot.css">
 </head>
+<style>
+    .chatbot-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: #f10303;
+    border: none;
+    border-radius: 50%;
+    color: #f8f3f3;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(241, 3, 3, 0.5);
+}
+
+.chatbot-button:active {
+    transform: scale(0.95);
+}
+</style>
 <body>
     <div class="page-shell">
         <header class="page-header">
@@ -75,7 +105,12 @@
             </section>
         </main>
     </div>
-
+<button class="chatbot-button" id="chatToggle">
+    💬
+</button>
+<button class="chatbot-button" id="chatToggle">
+    <i class="fas fa-comments"></i>
+</button>
     <button class="chat-float-button" id="chatToggle" aria-label="Open chat widget">💬</button>
 
     <script src="chatbot.js"></script>
