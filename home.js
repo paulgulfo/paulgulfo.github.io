@@ -148,83 +148,63 @@
 	// Initialize everything
 	document.addEventListener('DOMContentLoaded', () => {
 		document.querySelectorAll('.carousel').forEach(node => {
-new Carousel(node, {
-    speed: 80
-});			node.setAttribute('tabindex', '0');
+			new Carousel(node, { autoplay: true, interval: 3600 });
+			node.setAttribute('tabindex', '0');
 		});
 
 		initHeroParallax();
 		initObservers();
-// =========================
-// Mobile Navigation Toggle
-// =========================
 
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-const panelClose = document.getElementById("panelClose");
+		// Mobile navigation toggle
+		const navToggle = document.querySelector('.nav-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		if (navToggle && navLinks) {
+			const panelClose = document.getElementById('panelClose');
 
-if (navToggle && navLinks) {
+			function toggleSidebarState() {
+				const opened = navLinks.classList.toggle('open');
+				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+				if (panelClose) panelClose.style.display = opened ? 'block' : 'none';
+			}
 
-    function openMenu() {
-        navLinks.classList.add("open");
-        navToggle.setAttribute("aria-expanded", "true");
-        navLinks.setAttribute("aria-hidden", "false");
-    }
+			// nav toggle (hamburger in header)
+			navToggle.addEventListener('click', () => {
+				toggleSidebarState();
+			});
 
-    function closeMenu() {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navLinks.setAttribute("aria-hidden", "true");
-    }
+			if (panelClose) {
+				// close panel when internal close button is clicked
+				panelClose.addEventListener('click', (e) => {
+					if (navLinks.classList.contains('open')) {
+						navLinks.classList.remove('open');
+						navToggle.setAttribute('aria-expanded', 'false');
+						panelClose.style.display = 'none';
+					}
+				});
+				// initialize visual state
+				panelClose.style.display = navLinks.classList.contains('open') ? 'block' : 'none';
+			}
 
-    // Toggle Menu
-    navToggle.addEventListener("click", () => {
-        if (navLinks.classList.contains("open")) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
+			document.querySelectorAll('.nav-links a').forEach(a => {
+				a.addEventListener('click', () => {
+					if (navLinks.classList.contains('open')) {
+						navLinks.classList.remove('open');
+						navToggle.setAttribute('aria-expanded', 'false');
+						setSideState(false);
+					}
+				});
+			});
 
-    // Close Button
-    if (panelClose) {
-        panelClose.addEventListener("click", closeMenu);
-    }
+			// Close on Escape
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+					navLinks.classList.remove('open');
+					navToggle.setAttribute('aria-expanded', 'false');
+					setSideState(false);
+				}
+			});
+		}
+	});
 
-    // Close kapag pumili ng menu
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", closeMenu);
-    });
+})();
 
-    // ESC key
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            closeMenu();
-        }
-    });
-
-    // Click outside
-    document.addEventListener("click", (e) => {
-        if (
-            navLinks.classList.contains("open") &&
-            !navLinks.contains(e.target) &&
-            !navToggle.contains(e.target)
-        ) {
-            closeMenu();
-        }
-    });
-	const navToggle=document.querySelector(".nav-toggle");
-
-console.log(navToggle);
-
-navToggle.addEventListener("click",()=>{
-
-    console.log("MENU CLICKED");
-
-});
-
-} // <-- end if
-
-}); // <-- end DOMContentLoaded
-
-})(); // <-- end IIFE
