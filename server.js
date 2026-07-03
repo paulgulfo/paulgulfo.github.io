@@ -54,7 +54,7 @@ function generateLocalReply(message) {
     if (/|nag gagatas ba si felboy|felboy/.test(text)) {
         return 'Malakas mag kape si felboy';
     }
-     if (/|Anong course ni Aljay|aljay.aljay.jay.taba/.test(text)) {
+     if (/|Anong course ni Aljay|aljay/.test(text)) {
         return 'edi eDOKKKKKKK';
     }
     if (/lawrence|tt|sobrang laki/.test(text)) {
