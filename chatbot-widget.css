@@ -43,9 +43,7 @@
 
         margin:auto;
     }
-#chatbot, .chatbot-container, .ai-chat {
-  z-index: 999;         /* or lower */
-}
+
     .chat-widget-body{
         padding:14px;
         gap:12px;
