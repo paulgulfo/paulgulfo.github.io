@@ -208,8 +208,3 @@
 
 })();
 
-const menuBar = document.querySelector('.menu-bar');
-if (menuBar) {
-	menuBar.style.alignItems = 'center';
-	menuBar.style.height = '100vh';
-}
