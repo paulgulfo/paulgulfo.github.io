@@ -45,23 +45,18 @@ function generateLocalReply(message) {
         return greetingReply;
     }
 
-    if (/pogi ba si paul|sobrang pogi|pogi/.test(text)) {
+    if (/pogi ba si paul?|sobrang pogi|pogi/.test(text)) {
         return 'sobrang pogi ni Paul';
     }
      if (/Kupal si eric|sobrang kupal ni eric|eric/.test(text)) {
         return 'sobrang kupal ni Eric';
     }
-    if (/|nag gagatas ba si felboy|felboy/.test(text)) {
+    if (/|nag gagatas ba si felboy?|felboy/.test(text)) {
         return 'Malakas mag kape si felboy';
     }
-   if (
-    /anong course ni aljay jay taba lisa/i.test(text) ||
-    /anong course ni aljay/i.test(text) ||
-    /aljay jay taba lisa/i.test(text) ||
-    /aljay/i.test(text)
-) {
-    return 'edi eDOKKKKKKK';
-}
+     if (/Anong course ni Aljay?|aljay|taba/.test(text)) {
+        return 'edi eDOKKKKKKK';
+    }
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
     }
