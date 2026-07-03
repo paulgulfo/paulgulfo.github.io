@@ -190,7 +190,9 @@
 					if (navLinks.classList.contains('open')) {
 						navLinks.classList.remove('open');
 						navToggle.setAttribute('aria-expanded', 'false');
-						setSideState(false);
+						if (panelClose) {
+    panelClose.style.display = "none";
+}
 					}
 				});
 			});
@@ -200,7 +202,9 @@
 				if (e.key === 'Escape' && navLinks.classList.contains('open')) {
 					navLinks.classList.remove('open');
 					navToggle.setAttribute('aria-expanded', 'false');
-					setSideState(false);
+					if (panelClose) {
+    panelClose.style.display = "none";
+}
 				}
 			});
 		}
@@ -208,3 +212,7 @@
 
 })();
 
+if (navLinks.classList.contains("open")) {
+    navLinks.classList.remove("open");
+    navToggle.setAttribute("aria-expanded","false");
+}
