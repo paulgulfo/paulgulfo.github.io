@@ -359,28 +359,42 @@ footer {
   /* Show nav toggle and hide desktop nav by default */
   .nav-toggle { display: flex; }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 80%;
-    max-width: 320px;
-    background: linear-gradient(180deg, #0f0f0f, #121212);
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: 5rem 1.5rem 1.5rem;
-    transform: translateX(-100%);
-    transition: transform 0.32s ease;
-    box-shadow: 8px 0 24px rgba(0,0,0,0.5);
-    display: flex;
-    z-index: 1100;
-  }
+.nav-links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 320px;
+  background: linear-gradient(180deg, #0f0f0f, #121212);
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 5rem 1.5rem 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.32s ease;
+  box-shadow: 8px 0 24px rgba(0,0,0,0.5);
+  display: flex;
+  z-index: 1100;
 
-  .nav-links.open {
+  /* idagdag */
+  pointer-events: none;
+}
+
+.nav-links.open {
     transform: translateX(0);
-  }
+    pointer-events: auto;
+}
+.nav-links li {
+    position: relative;
+    z-index: 2;
+}
 
+.nav-links a {
+    position: relative;
+    display: block;
+    width: 100%;
+    z-index: 3;
+}
   .nav-links li { width: 100%; }
   .nav-links a {
     display: block;
