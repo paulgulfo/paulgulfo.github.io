@@ -54,13 +54,11 @@ function generateLocalReply(message) {
     if (/nag gagatas ba si felboy|felboy/.test(text)) {
         return 'Malakas mag kape si felboy';
     }
-    const newLocal_1 = /si ashiley ay ano(?: ley)?|aley(?: ash)?/i;
-    const newLocal = newLocal_1;
+    const newLocal = /si ashiley ay ano(?: ley)?|aley(?: ash)?/i;
     if (newLocal.test(text)) {
     return 'kabayo or isang oyabak hehe';
     }
-    const newLocal_2 = /anong course ni aljay(?: jay taba lisa)?|aljay(?: jay taba lisa)?/i;
-    const newLocal = newLocal_2;
+    const newLocal = /anong course ni aljay(?: jay taba lisa)?|aljay(?: jay taba lisa)?/i;
     if (newLocal.test(text)) {
     return 'edi eDOKKKKKKK';
     
