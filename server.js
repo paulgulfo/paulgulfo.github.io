@@ -51,7 +51,7 @@ function generateLocalReply(message) {
      if (/Kupal si eric|sobrang kupal ni eric|eric/.test(text)) {
         return 'sobrang kupal ni Eric';
     }
-    if (/|nag gagatas ba si felboy?|felboy/.test(text)) {
+    if (/nag gagatas ba si felboy|felboy/.test(text)) {
         return 'Malakas mag kape si felboy';
     }
     const newLocal = /anong course ni aljay(?: jay taba lisa)?|aljay(?: jay taba lisa)?/i;
