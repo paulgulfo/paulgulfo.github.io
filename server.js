@@ -54,9 +54,14 @@ function generateLocalReply(message) {
     if (/|nag gagatas ba si felboy|felboy/.test(text)) {
         return 'Malakas mag kape si felboy';
     }
-     if (/|Anong course ni Aljay|aljay/.test(text)) {
-        return 'edi eDOKKKKKKK';
-    }
+   if (
+    /anong course ni aljay jay taba lisa/i.test(text) ||
+    /anong course ni aljay/i.test(text) ||
+    /aljay jay taba lisa/i.test(text) ||
+    /aljay/i.test(text)
+) {
+    return 'edi eDOKKKKKKK';
+}
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
     }
