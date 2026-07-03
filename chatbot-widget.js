@@ -22,7 +22,7 @@ widgetShell.innerHTML = `
             <button class="chat-widget-send" type="submit">Send</button>
         </form>
     </div>
-    <button class="chat-widget-toggle" id="chatWidgetToggle" type="button" aria-label="Open chat">🤖</button>
+    <button class="chat-widget-toggle" id="chatWidgetToggle" type="button" aria-label="Open chat">🧠</button>
 `;
 
 document.body.appendChild(widgetShell);
