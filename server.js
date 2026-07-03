@@ -56,7 +56,7 @@ function generateLocalReply(message) {
     }
     if (/anong course ni aljay(?: jay taba lisa)?|aljay(?: jay taba lisa)?/i.test(text)) {
     return 'edi eDOKKKKKKK';
-}{
+    
     }
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
