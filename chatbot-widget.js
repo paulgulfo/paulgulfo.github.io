@@ -5,7 +5,7 @@ widgetShell.innerHTML = `
     <div class="chat-widget-panel" id="chatWidgetPanel">
         <div class="chat-widget-header">
             <div>
-                <p class="chat-widget-title">Paul Assistant</p>
+                <p class="chat-widget-title">Portfolio Assistant</p>
                 <p class="chat-widget-subtitle">Ask about services and projects</p>
             </div>
             <button class="chat-widget-close" id="chatWidgetClose" type="button" aria-label="Close chat">✕</button>
@@ -22,7 +22,7 @@ widgetShell.innerHTML = `
             <button class="chat-widget-send" type="submit">Send</button>
         </form>
     </div>
-    <button class="chat-widget-toggle" id="chatWidgetToggle" type="button" aria-label="Open chat">🧠</button>
+    <button class="chat-widget-toggle" id="chatWidgetToggle" type="button" aria-label="Open chat">💬</button>
 `;
 
 document.body.appendChild(widgetShell);
