@@ -287,14 +287,3 @@
     40% { opacity: 1; }
 }
 
-@media (max-width: 640px) {
-    .chat-widget-shell {
-        right: 5rem;
-        bottom: 0.8rem;
-    }
-
-    .chat-widget-panel {
-        width: min(92vw, 360px);
-        max-height: 78vh;
-    }
-}

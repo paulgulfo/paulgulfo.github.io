@@ -169,21 +169,21 @@
 
 			// nav toggle (hamburger in header)
 			navToggle.addEventListener('click', () => {
-				toggleSidebarState();
-			});
+    console.log("Hamburger clicked");
+    toggleSidebarState();
+});
 
 			if (panelClose) {
-				// close panel when internal close button is clicked
-				panelClose.addEventListener('click', (e) => {
-					if (navLinks.classList.contains('open')) {
-						navLinks.classList.remove('open');
-						navToggle.setAttribute('aria-expanded', 'false');
-						panelClose.style.display = 'none';
-					}
-				});
-				// initialize visual state
-				panelClose.style.display = navLinks.classList.contains('open') ? 'block' : 'none';
-			}
+    panelClose.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        panelClose.style.display = 'none';
+    });
+
+    panelClose.style.display = navLinks.classList.contains('open')
+        ? 'block'
+        : 'none';
+}
 
 			document.querySelectorAll('.nav-links a').forEach(a => {
 				a.addEventListener('click', () => {
@@ -191,7 +191,7 @@
 						navLinks.classList.remove('open');
 						navToggle.setAttribute('aria-expanded', 'false');
 						if (panelClose) {
-    panelClose.style.display = "none";
+		panelClose.style.display = "none";
 }
 					}
 				});

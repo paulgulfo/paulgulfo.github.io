@@ -92,6 +92,15 @@ function addHistory(role, content) {
 
 function openWidget() {
     widgetPanel.classList.add('open');
+
+    const navLinks = document.querySelector('.nav-links');
+    const navToggle = document.querySelector('.nav-toggle');
+
+    if (navLinks && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+
     widgetInput.focus();
 }
 
