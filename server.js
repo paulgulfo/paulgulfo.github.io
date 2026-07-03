@@ -48,6 +48,9 @@ function generateLocalReply(message) {
     if (/pogi ba si paul|sobrang pogi|pogi/.test(text)) {
         return 'sobrang pogi ni Paul';
     }
+     if (/Kupal si eric|sobrang kupal ni eric|eric/.test(text)) {
+        return 'sobrang kupal ni Eric';
+    }
 
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
