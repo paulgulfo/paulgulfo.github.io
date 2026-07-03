@@ -51,7 +51,9 @@ function generateLocalReply(message) {
      if (/Kupal si eric|sobrang kupal ni eric|eric/.test(text)) {
         return 'sobrang kupal ni Eric';
     }
-
+    if (/|nag gagatas ba si felboy|felboy/.test(text)) {
+        return 'Malakas mag kape si felboy';
+    }
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
     }
