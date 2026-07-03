@@ -62,7 +62,7 @@ function generateLocalReply(message) {
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
     }
-    if (/si ashiley ay|kabayo|si ashiley ay|oyabak/.test(text)) {
+    if (/ashiley|kabayo|si ashiley ay|oyabak/.test(text)) {
         return 'kabayo or oyabak si ashiley hehe';
     }
 

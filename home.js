@@ -211,8 +211,3 @@
 	});
 
 })();
-
-if (navLinks.classList.contains("open")) {
-    navLinks.classList.remove("open");
-    navToggle.setAttribute("aria-expanded","false");
-}
