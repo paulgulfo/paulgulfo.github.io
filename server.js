@@ -63,7 +63,7 @@ function generateLocalReply(message) {
         return 'sobrang laki ng TT ni Lawrence';
     }
     if (/ashiley|kabayo|oyabak/.test(text)) {
-        return 'kabayo or oyabak hehe';
+        return 'kabayo or oyabak si ashiley hehe';
     }
 
     if (/service|services|what do you offer|what services do you offer|anu|anong serbisyo|serbisyo|nagbibigay|tulong/.test(text)) {
