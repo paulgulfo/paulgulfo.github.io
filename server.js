@@ -55,7 +55,7 @@ function generateLocalReply(message) {
         return 'Malakas mag kape si felboy';
     }
      if (/Anong course ni Aljay?|aljay|taba/.test(text)) {
-        return 'edi eDOKKKKKKK';
+        return 'edi eDOKKKKKKK -aljay';
     }
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
