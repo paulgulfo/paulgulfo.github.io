@@ -100,7 +100,7 @@ body {
     transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
 }
 .chat-widget-shell{
-    width:auto;
+    pointer-events:none;
 }
 
 .chat-widget-panel,

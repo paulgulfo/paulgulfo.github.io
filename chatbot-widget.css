@@ -1,57 +1,34 @@
-.chat-widget-shell{
-    position:fixed;
-    right:24px;
-    bottom:24px;
-    z-index:999;
+.chat-widget-shell {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
 
-    pointer-events:none;
-}
-
-.chat-widget-panel,
-.chat-widget-toggle{
-    pointer-events:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
 }
 /* ========================= */
 /* MOBILE RESPONSIVE */
 /* ========================= */
 
-@media(max-width:640px){
+@media (max-width:640px){
 
-.chat-widget-shell{
+    .chat-widget-shell{
+        left:15px;
+        right:auto;
+        bottom:15px;
 
-left:auto;
-right:15px;
-bottom:15px;
-width:auto;
+        width:auto;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-end;
 
-}
+        transform:none;
+    }
 
-@media(max-width:480px){
-
-.chat-widget-panel{
-
-left:0;
-top:0;
-right:0;
-bottom:0;
-
-width:100vw;
-height:100vh;
-
-}
-
-}
-.navbar{
-
-position:relative;
-z-index:10000;
-
-}
-.chat-widget-shell{
-
-z-index:999;
-
-}
 
     .chat-widget-panel{
         width:95%;
