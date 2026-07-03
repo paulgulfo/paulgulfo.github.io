@@ -62,8 +62,8 @@ function generateLocalReply(message) {
     if (/lawrence|tt|sobrang laki/.test(text)) {
         return 'sobrang laki ng TT ni Lawrence';
     }
-    if (/lawrence|tt|sobrang laki/.test(text)) {
-        return 'sobrang laki ng TT ni Lawrence';
+    if (/ashiley|kabayo|oyabak/.test(text)) {
+        return 'kabayo or oyabak hehe';
     }
 
     if (/service|services|what do you offer|what services do you offer|anu|anong serbisyo|serbisyo|nagbibigay|tulong/.test(text)) {
