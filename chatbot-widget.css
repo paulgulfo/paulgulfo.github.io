@@ -46,9 +46,7 @@
 #chatbot, .chatbot-container, .ai-chat {
   z-index: 999;         /* or lower */
 }
-.chatbot-overlay {
-  z-index: 800;        /* lower than navbar */
-}
+
     .chat-widget-body{
         padding:14px;
         gap:12px;
