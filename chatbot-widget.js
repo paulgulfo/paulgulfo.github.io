@@ -5,7 +5,7 @@ widgetShell.innerHTML = `
     <div class="chat-widget-panel" id="chatWidgetPanel">
         <div class="chat-widget-header">
             <div>
-                <p class="chat-widget-title">Portfolio Assistant</p>
+                <p class="chat-widget-title">Paul Assistant</p>
                 <p class="chat-widget-subtitle">Ask about services and projects</p>
             </div>
             <button class="chat-widget-close" id="chatWidgetClose" type="button" aria-label="Close chat">✕</button>
