@@ -540,11 +540,10 @@ footer {
 .chat-widget-toggle{
     pointer-events:auto;
 }
-nav, .navbar, header {
-  position: relative;   /* or fixed */
-  z-index: 1000;        /* higher than the chatbot */
+.navbar{
+    position:relative;
+    z-index:10000;
 }
-
 .chat-widget-shell{
     z-index:9999;
 }
