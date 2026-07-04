@@ -1,13 +1,19 @@
-.chat-widget-shell {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 9999;
+.chat-widget-shell{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:9999;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:16px;
+
+    pointer-events:none;
+}
+.chat-widget-toggle,
+.chat-widget-panel{
+    pointer-events:auto;
 }
 /* ========================= */
 /* MOBILE RESPONSIVE */
@@ -15,10 +21,9 @@
 
 @media (max-width:640px){
 
-    .chat-widget-shell{
-        left:15px;
-        right:auto;
-        bottom:15px;
+    .chat-widget-panel{
+    position:relative;
+    z-index:10000;
 
         width:auto;
         display:flex;
