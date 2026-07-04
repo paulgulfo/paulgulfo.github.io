@@ -34,7 +34,9 @@ const widgetBody = document.getElementById('chatWidgetBody');
 const widgetTyping = document.getElementById('chatWidgetTyping');
 const widgetForm = document.getElementById('chatWidgetForm');
 const widgetInput = document.getElementById('chatWidgetInput');
-const STORAGE_KEY = 'paulPortfolioWidgetChat';
+window.addEventListener("beforeunload", () => {
+    localStorage.removeItem(STORAGE_KEY);
+});
 const WELCOME_MESSAGE = {
     role: 'ai',
     content: '👋 Hello! I’m Paul Assistant. I can help with logo design, branding, marketing design, packaging, social media design, print work, portfolio information, and contact details.',
