@@ -38,18 +38,13 @@
 
     border-radius:20px;
 }
-
 .chat-widget-body{
     display:flex;
     flex-direction:column;
     gap:14px;
     padding:18px;
     overflow-y:auto;
-}
-
-.chat-widget-message{
-
-    max-width:80%;
+    flex:1;
 }
 
 .chat-widget-form{
@@ -80,16 +75,16 @@
 }
 
 }
-
-    .chat-widget-message{
-        max-width:85%;
-        padding:12px 15px;
-        font-size:14px;
-        line-height:1.6;
-    }
-
-   
-
+.chat-widget-message{
+    width:fit-content;
+    max-width:78%;
+    padding:12px 16px;
+    border-radius:18px;
+    line-height:1.6;
+    font-size:15px;
+    word-wrap:break-word;
+    animation:widgetFadeIn .25s ease;
+}
     .chat-widget-message.ai{
         margin-right:auto;
     }
@@ -206,16 +201,16 @@
 }
     
 .chat-widget-message.ai{
-    margin-right:auto;
-    margin-left:8px;
+    align-self:flex-start;
+    margin-left:6px;
     background:#442336;
     color:#fff;
     border-radius:18px 18px 18px 6px;
 }
 
 .chat-widget-message.user{
-    margin-left:auto;
-    margin-right:8px;
+    align-self:flex-end;
+    margin-right:6px;
     background:#343844;
     color:#fff;
     border-radius:18px 18px 6px 18px;
