@@ -83,6 +83,14 @@
     bottom:15px;
 }
 
+.chat-widget-panel{
+    left:15px;
+    right:15px;
+    width:auto;
+    max-width:none;
+    height:75vh;
+}
+
 }
 
     .chat-widget-message{
@@ -153,16 +161,13 @@
     pointer-events: auto;
 }
 
-.chat-widget-header{
-        padding:16px 18px;
-    }
-
-    .chat-widget-close{
-        width:42px;
-        height:42px;
-        font-size:32px;
-    }
-
+.chat-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 0.8rem;
+    background: rgba(255,255,255,0.06);
+}
 
 .chat-widget-title {
     margin: 0;
