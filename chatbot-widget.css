@@ -210,19 +210,15 @@
 }
     
 .chat-widget-message.ai{
-    margin-right:auto;
-    margin-left:8px;
-    background:#442336;
+    background:#4b2338;
     color:#fff;
-    border-radius:18px 18px 18px 6px;
+    border-radius:20px 20px 20px 8px;
 }
 
 .chat-widget-message.user{
-    margin-left:auto;
-    margin-right:8px;
-    background:#343844;
+    background:#313543;
     color:#fff;
-    border-radius:18px 18px 6px 18px;
+    border-radius:20px 20px 8px 20px;
 }
 
 .chat-widget-message-time {
