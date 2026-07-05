@@ -111,7 +111,9 @@ async function sendMessage(message) {
     setTyping(true);
 
     try {
-        const response = await fetch('/chat', {
+        const API_URL = "https://paul-assistant.up.railway.app/chat";
+
+const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message.trim() }),

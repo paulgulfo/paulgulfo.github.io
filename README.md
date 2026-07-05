@@ -45,7 +45,6 @@ A modern portfolio chatbot for a graphic design website. It uses a responsive gl
 
 5. Open the chatbot in your browser:
    ```text
-const API_URL = "https://paul-assistant.up.railway.app/chat";
 ## Notes
 - The backend uses the OpenAI Chat Completions API.
 - The server serves static files from the project root, so `chatbot.html` and supporting files load correctly.
