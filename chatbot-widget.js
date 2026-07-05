@@ -4,10 +4,17 @@ widgetShell.className = 'chat-widget-shell';
 widgetShell.innerHTML = `
     <div class="chat-widget-panel" id="chatWidgetPanel">
         <div class="chat-widget-header">
-            <div>
-                <p class="chat-widget-title">Portfolio Assistant</p>
-                <p class="chat-widget-subtitle">Ask about services and projects</p>
-            </div>
+           <div class="chat-widget-profile">
+    <div class="chat-widget-avatar">🎨</div>
+
+    <div>
+        <p class="chat-widget-title">Paul AI Assistant</p>
+        <p class="chat-widget-subtitle">
+            <span class="chat-status"></span>
+            Premium AI Assistant
+        </p>
+    </div>
+</div>
             <button class="chat-widget-close" id="chatWidgetClose" type="button" aria-label="Close chat">✕</button>
         </div>
         <div class="chat-widget-body" id="chatWidgetBody"></div>
