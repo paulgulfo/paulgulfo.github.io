@@ -270,32 +270,27 @@
 /* TYPING */
 /* ========================= */
 
-.chat-widget-typing{
-
-    display:flex;
-
-    gap:6px;
-
-    padding:12px 16px;
-
-    width:max-content;
-
-    border-radius:999px;
-
-    background:#2d3243;
-}
-
-.chat-widget-dot{
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#ff4a63;
-
-    animation:widgetBlink 1s infinite;
-}
+.chat-widget-typing { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.45rem; 
+    padding: 0.8rem 0.9rem; 
+    width: fit-content; 
+    border-radius: 999px; 
+    background: rgba(255,255,255,0.1); 
+    margin-right: auto; 
+    opacity: 0; 
+    transform: translateY(8px); 
+    transition: opacity 220ms ease, transform 220ms ease; } 
+.chat-widget-typing.active { 
+    opacity: 1; 
+    transform: translateY(0); } 
+.chat-widget-dot { 
+    width: 8px; 
+    height: 8px; 
+    border-radius: 50%; 
+    background: #b30220; 
+    animation: widgetBlink 1s infinite ease-in-out; }
 
 .chat-widget-dot:nth-child(2){
     animation-delay:.2s;
