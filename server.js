@@ -267,3 +267,4 @@ app.listen(port, () => {
         console.log("⚠️ OPENAI_API_KEY is not configured.");
     }
 });
+const API_URL = "https://paul-assistant.up.railway.app/chat";
