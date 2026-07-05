@@ -130,7 +130,42 @@
     box-shadow:0 0 8px #32d74b;
     animation:statusPulse 1.5s infinite;
 }
+.chat-suggestions{
+    display:flex;
+    gap:8px;
+    padding:12px 16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    border-top:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    scrollbar-width:none;
+}
 
+.chat-suggestions::-webkit-scrollbar{
+    display:none;
+}
+
+.chat-suggestion{
+    border:none;
+    cursor:pointer;
+    border-radius:999px;
+    padding:8px 14px;
+    background:#2b3041;
+    color:#fff;
+    font-size:13px;
+    transition:.2s;
+    flex-shrink:0;
+}
+
+.chat-suggestion:hover{
+    background:#ff3b5c;
+}
+.chat-suggestions-title{
+    padding:14px 16px 6px;
+    font-size:13px;
+    color:#bcbcbc;
+    font-weight:600;
+}
 @keyframes statusPulse{
 
 0%{

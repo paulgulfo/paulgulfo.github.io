@@ -41,6 +41,12 @@ const widgetBody = document.getElementById('chatWidgetBody');
 const widgetTyping = document.getElementById('chatWidgetTyping');
 const widgetForm = document.getElementById('chatWidgetForm');
 const widgetInput = document.getElementById('chatWidgetInput');
+document.querySelectorAll(".chat-suggestion").forEach(btn => {
+    btn.addEventListener("click", () => {
+        widgetInput.value = btn.textContent;
+        sendWidgetMessage(btn.textContent);
+    });
+});
 const STORAGE_KEY = 'paulPortfolioWidgetChat';
 localStorage.removeItem(STORAGE_KEY);
 const WELCOME_MESSAGE = {
