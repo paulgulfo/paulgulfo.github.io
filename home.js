@@ -151,7 +151,7 @@
 			new Carousel(node, { autoplay: true, interval: 3600 });
 			node.setAttribute('tabindex', '0');
 		});
-
+// initHeroParallax();
 		initHeroParallax();
 		initObservers();
 
@@ -211,3 +211,143 @@
 	});
 
 })();
+
+
+/* ==========================================================
+   DRAGGABLE ID CARD + DYNAMIC LANYARD
+========================================================== */
+
+const card = document.getElementById("idCard");
+const path = document.getElementById("lanyardPath");
+const container = document.querySelector(".hero-image-container");
+
+let dragging = false;
+
+const home = {
+    x: 210,
+    y: 170
+};
+
+let pos = {
+    x: home.x,
+    y: home.y
+};
+
+let offset = {
+    x: 0,
+    y: 0
+};
+
+/* Initial position */
+card.style.left = pos.x - 150 + "px";
+card.style.top = pos.y + "px";
+
+/* Update lace */
+function updateLanyard() {
+
+    const centerX = pos.x;
+    const topY = pos.y + 15;
+
+    const controlX = 200 + (centerX - 200) * 0.35;
+    const controlY = topY * 0.45;
+
+    path.setAttribute(
+        "d",
+        `M200 0 Q${controlX} ${controlY} ${centerX} ${topY}`
+    );
+}
+
+/* Draw first */
+updateLanyard();
+
+/* Mouse Down */
+card.addEventListener("mousedown", (e) => {
+
+    dragging = true;
+
+    const rect = card.getBoundingClientRect();
+
+    offset.x = e.clientX - rect.left;
+    offset.y = e.clientY - rect.top;
+
+    card.style.animation = "none";
+
+});
+
+/* Mouse Move */
+document.addEventListener("mousemove", (e) => {
+
+    if (!dragging) return;
+
+    const rect = container.getBoundingClientRect();
+
+    pos.x = e.clientX - rect.left;
+    pos.y = e.clientY - rect.top - offset.y;
+
+    card.style.left = pos.x - card.offsetWidth / 2 + "px";
+    card.style.top = pos.y + "px";
+
+    /* Tilt */
+    const dx = pos.x - 200;
+
+    card.style.transform =
+        `rotate(${dx * 0.05}deg)`;
+
+    updateLanyard();
+
+});
+
+document.addEventListener("mouseup", () => {
+    dragging = false;
+});
+/* =====================================
+   SPRING RETURN + SWING
+===================================== */
+
+let vx = 0;
+let vy = 0;
+
+function animateCard() {
+
+    if (!dragging) {
+
+        const dx = home.x - pos.x;
+        const dy = home.y - pos.y;
+
+        /* Spring */
+
+        vx += dx * 0.08;
+        vy += dy * 0.08;
+
+        /* Friction */
+
+        vx *= 0.86;
+        vy *= 0.86;
+
+        pos.x += vx;
+        pos.y += vy;
+
+        card.style.left =
+            pos.x - card.offsetWidth / 2 + "px";
+
+        card.style.top =
+            pos.y + "px";
+
+        /* Swing */
+
+        const angle = vx * 2.2;
+
+        card.style.transform =
+            `
+            rotate(${angle}deg)
+            `;
+
+        updateLanyard();
+
+    }
+
+    requestAnimationFrame(animateCard);
+
+}
+
+animateCard();
